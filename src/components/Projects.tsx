@@ -1,33 +1,36 @@
-import { ExternalLink, Github, Smartphone, Globe, Database } from 'lucide-react';
+import { ExternalLink, Github, Globe, BarChart3, Bot } from 'lucide-react';
+import teamLinkImg from '../assets/images/team-link.jpeg';
+import tpsLogoImg from '../assets/images/tps-logo.png';
+import naviStructureImg from '../assets/images/navi-structure.png';
+
+declare module '*.jpeg';
+declare module '*.png';
 
 const Projects = () => {
   const projects = [
     {
       title: "TeamLink",
       description: "Full-stack web application built to simplify team formation in college courses. This solution won Best Teamwork Award in Indiana University's Informatics Capstone course.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: teamLinkImg,
       technologies: ["JavaScript", "TailwindCSS", "PHP", "MySQL", "OAuth2.0", "Twilio API"],
       icon: <Globe className="w-6 h-6" />,
-      github: "https://github.com",
-      live: "https://example.com"
+      live: "https://cgi.luddy.indiana.edu/~team23/app/pages/home.php"
     },
     {
       title: "Elevator Pitch Challenge",
       description: "A marketing tool developed for RPG to highlight where salespeople are struggling in their elevator pitches that leverages AI analysis to provide actionable insights.",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: tpsLogoImg,
       technologies: ["Python", "JavaScript", "TailwindCSS", "Vercel", "Cloud Firestore", "OpenAI API"],
-      icon: <Smartphone className="w-6 h-6" />,
-      github: "https://github.com",
-      live: "https://example.com"
+      icon: <BarChart3 className="w-6 h-6" />,
+      live: "https://priority-pitch.vercel.app/login"
     },
     {
       title: "Navi",
       description: "An agentic B2B sales AI solution designed to help sales teams improve their performance through AI-driven insights and proprietary data.",
-      image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: naviStructureImg,
       technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Vercel", "Azure AI"],
-      icon: <Database className="w-6 h-6" />,
-      github: "https://github.com",
-      live: "https://example.com"
+      icon: <Bot className="w-6 h-6" />,
+      live: "https://navi.theprioritysale.com/auth/login"
     }
   ];
 
