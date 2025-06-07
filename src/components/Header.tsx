@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -28,9 +28,6 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <div className="text-white font-bold text-xl sm:text-2xl">
-            Dylan
-          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
