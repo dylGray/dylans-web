@@ -3,24 +3,28 @@ import { Code, Palette, Zap, Heart } from 'lucide-react';
 const About = () => {
   const experiences = [
     {
-      icon: <Code className="w-6 h-6" />,
+      icon: Code,
+      iconColor: "text-green-500",
       title: "Technical Excellence",
-      description: "Hands on experience with modern technologies including React, TypeScript, Node.js, and cloud platforms."
+      description: "Experience with modern technologies including React, TypeScript, Node.js, and cloud platforms."
     },
     {
-      icon: <Palette className="w-6 h-6" />,
+      icon: Palette,
+      iconColor: "text-purple-500",
       title: "Design Thinking",
       description: "Have scaled software systems from the ground-up, and actively maintain production level applications."
     },
     {
-      icon: <Zap className="w-6 h-6" />,
+      icon: Zap,
+      iconColor: "text-yellow-500",
       title: "Problem Solving",
       description: "Thrive on complex challenges and enjoy breaking down problems into elegant, scalable solutions."
     },
     {
-      icon: <Heart className="w-6 h-6" />,
+      icon: Heart,
+      iconColor: "text-red-500",
       title: "Passion Driven",
-      description: "I love exploring new tools and pushing the boundaries of what's possible through Artifical Intelligence."
+      description: "I love exploring new tools and pushing the boundaries of what's possible through Artificial Intelligence."
     }
   ];
 
@@ -46,7 +50,7 @@ const About = () => {
               <div key={index} className="glass rounded-xl p-6 hover:scale-105 transition-transform duration-200">
                 <div className="flex items-start space-x-4">
                   <div className="glass-dark rounded-lg p-3 text-blue-300">
-                    {exp.icon}
+                    {exp.icon && <exp.icon className={exp.iconColor + " w-7 h-7"} />}
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-white mb-2">{exp.title}</h4>

@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center px-2 sm:px-4 lg:px-6 pt-14 sm:pt-20">
       <div className="text-center max-w-4xl mx-auto">
         <div className="glass rounded-3xl p-8 sm:p-12 lg:p-16 animate-float">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
@@ -18,12 +18,12 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-            Full-Stack Developer & Creative Problem Solver
+            Developer & Creative Problem Solver
           </p>
           
-          <p className="text-base sm:text-lg text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-            I craft digital experiences that blend innovative technology with thoughtful design. 
-            Passionate about building solutions that make a difference.
+          <p className="text-base sm:text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+            I craft digital solutions that blend innovative technology with thoughtful design. 
+            Passionate about Artifical Intelligence and the human experience.
           </p>
 
           {/* Social Links */}
@@ -57,7 +57,7 @@ const Hero = () => {
             onClick={scrollToAbout}
             className="glass-dark rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
           >
-            <span>Discover My Story</span>
+            <span>More About Me</span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </button>
         </div>

@@ -20,17 +20,25 @@ body {
 
 .glass {
   /* Slightly tinted white glass on grey */
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.20);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+}
+
+.glass-medium {
+  /* Mid-tone glass between light and dark */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .glass-dark {
   /* Darker glass variant */
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.10);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 
 .text-gradient {
   /* Match the blue gradient for text */

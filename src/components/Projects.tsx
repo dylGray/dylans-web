@@ -1,31 +1,30 @@
-import React from 'react';
 import { ExternalLink, Github, Smartphone, Globe, Database } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, inventory management, and real-time analytics.",
+      title: "TeamLink",
+      description: "Full-stack web application built to simplify team formation in college courses. This solution won the Best Teamwork Award in Indiana University's Informatics Capstone course.",
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
+      technologies: ["JavaScript", "TailwindCSS", "PHP", "MySQL", "OAuth2.0"],
       icon: <Globe className="w-6 h-6" />,
       github: "https://github.com",
       live: "https://example.com"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features. Built with modern web technologies.",
+      title: "Elevator Pitch Challenge",
+      description: "A marketing tool developed for RPG to highlight where salespeople are struggling in their elevator pitches that leverages AI analysis to provide actionable insights.",
       image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "TypeScript", "Socket.io", "MongoDB", "Express"],
+      technologies: ["Python", "JavaScript", "TailwindCSS", "Cloud Firestore", "OpenAI API"],
       icon: <Smartphone className="w-6 h-6" />,
       github: "https://github.com",
       live: "https://example.com"
     },
     {
-      title: "Data Analytics Dashboard",
-      description: "An interactive dashboard for visualizing complex datasets with real-time charts, filters, and export capabilities. Designed for business intelligence and decision-making.",
+      title: "Navi",
+      description: "An agentic B2B sales AI solution designed to help sales teams improve their performance through AI-driven insights and proprietary data.",
       image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React", "D3.js", "Python", "FastAPI", "Redis"],
+      technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Vercel"],
       icon: <Database className="w-6 h-6" />,
       github: "https://github.com",
       live: "https://example.com"
@@ -46,7 +45,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="glass rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group">
+            <div key={index} className="glass-medium rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -61,7 +60,7 @@ const Projects = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-white/80 mb-4 leading-relaxed text-sm">
+                <p className="text-white/90 mb-4 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
@@ -106,7 +105,7 @@ const Projects = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
+            className="glass-medium rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
           >
             <Github className="w-5 h-5" />
             <span>View More on GitHub</span>
