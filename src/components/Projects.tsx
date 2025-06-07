@@ -1,7 +1,7 @@
 import { ExternalLink, Github, Globe, BarChart3, Bot } from 'lucide-react';
 import teamLinkImg from '../assets/images/team-link.jpeg';
-import tpsLogoImg from '../assets/images/tps-logo.png';
-import naviStructureImg from '../assets/images/navi-structure.png';
+import tpsLogoImg from '../assets/images/tps-logo1.png';
+import naviStructureImg from '../assets/images/navi-structure1.png';
 
 declare module '*.jpeg';
 declare module '*.png';
@@ -53,7 +53,8 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  style={{ height: '225px' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-4 left-4 glass-dark rounded-lg p-2 text-blue-300">

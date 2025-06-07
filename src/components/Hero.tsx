@@ -1,4 +1,5 @@
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import dylAndMagsImg from '../assets/images/dyl-and-mags.jpg';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -15,18 +16,25 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
             Hi, I'm <span className="text-gradient">Dylan</span>
           </h1>
-          
-          <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-            Developer & Creative Problem Solver
+          <img
+            src={dylAndMagsImg}
+            alt="Dylan and Mags"
+            className="mx-auto mb-6 w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-white/20 shadow-lg"
+          />
+          <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-4 md:mb-8 leading-relaxed">
+            Developer & Problem Solver
           </p>
           
-          <p className="text-base sm:text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg text-white/90 mb-2 md:mb-1 max-w-2xl mx-auto leading-relaxed">
             I craft digital solutions that blend innovative technology with thoughtful design. 
+          </p>
+
+          <p className="text-sm sm:text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
             Passionate about Artifical Intelligence and the human experience.
           </p>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="hidden md:flex justify-center space-x-6 mb-12">
             <a
               href="https://github.com/dylGray"
               target="_blank"

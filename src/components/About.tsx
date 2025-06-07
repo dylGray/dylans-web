@@ -36,10 +36,10 @@ const About = () => {
           <div className="glass rounded-2xl p-8">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">My Journey</h3>
               <div className="space-y-4 text-white leading-relaxed">
-                <p>
+                <p className='text-sm md:text-lg'>
                   After two years playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.
                 </p>
-                <p>
+                <p className='text-sm md:text-lg'>
                   Post graudation, I've begun working full-time role at Revenue Path Group as the Director of Product Development & Engineering. At this role, I now design scalable systems, guide clients through technical challenges, and continue to push the boundaries of AI and the human experience.
                 </p>
               </div>
