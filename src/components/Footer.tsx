@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Smartphone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,7 +29,7 @@ const Footer = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                 Let's <span className="text-gradient">Connect</span>
               </h2>
-              <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-md md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
                 I'm always interested in new opportunities and collaborations.{' '}
                 Whether you have a project in mind or just want to chat about
                 technology, feel free to reach out!
@@ -43,6 +43,14 @@ const Footer = () => {
               >
                 <Mail className="w-5 h-5" />
                 <span>dylan.gray@revenuepathgroup.com</span>
+              </a>
+
+              <a
+                href="tel:123-456-7890"
+                className="glass-dark rounded-full px-6 py-3 text-white hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-3"
+              >
+                <Smartphone className="w-5 h-5" />
+                <span>317-500-0233</span>
               </a>
 
               <div className="flex space-x-4">

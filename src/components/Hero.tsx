@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
@@ -29,7 +28,7 @@ const Hero = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
             <a
-              href="https://github.com"
+              href="https://github.com/dylGray"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
@@ -37,7 +36,7 @@ const Hero = () => {
               <Github className="w-6 h-6 text-white" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/dylan-gray-255107217/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
@@ -45,7 +44,7 @@ const Hero = () => {
               <Linkedin className="w-6 h-6 text-white" />
             </a>
             <a
-              href="mailto:hello@dylan.dev"
+              href="mailto:hello@dylan.gray@revenuepathgroup.com"
               className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
             >
               <Mail className="w-6 h-6 text-white" />

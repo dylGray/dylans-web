@@ -35,7 +35,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="glass rounded-2xl p-8">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">My Journey</h3>
-              <div className="space-y-4 text-white/90 leading-relaxed">
+              <div className="space-y-4 text-white leading-relaxed">
                 <p>
                   After two years playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.
                 </p>
@@ -54,7 +54,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-white mb-2">{exp.title}</h4>
-                    <p className="text-white/80 leading-relaxed">{exp.description}</p>
+                    <p className="text-white leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
               </div>
