@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
-      <nav className="container mx-auto px-2 sm:px-4 lg:px-6">
+      <nav className="container mx-auto px-2 md:px-4">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="hidden md:flex space-x-8">
             {['About', 'Projects', 'Contact'].map((item) => (
@@ -37,7 +37,7 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden glass rounded-lg mt-2 p-4 border border-white/10">
+          <div className="md:hidden glass rounded-lg p-4 border border-white/10">
             <div className="flex flex-col space-y-4">
               {['About', 'Projects', 'Contact'].map((item) => (
                 <button
