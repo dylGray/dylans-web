@@ -29,7 +29,7 @@ const Hero = () => {
             I craft digital solutions that blend innovative technology with thoughtful design. 
           </p>
 
-          <p className="text-sm sm:text-lg text-white/90 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
             I'm passionate about Artifical Intelligence and the human experience.
           </p>
 

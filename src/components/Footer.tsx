@@ -9,7 +9,6 @@ const Footer = () => {
       const overlay = document.getElementById('background-overlay');
       if (overlay) {
         const scrollY = window.scrollY;
-        // Max opacity at 500px scroll
         const opacity = Math.min(scrollY / 500, 1) * 0.7;
         overlay.style.opacity = opacity.toString();
       }

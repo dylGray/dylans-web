@@ -39,7 +39,7 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden glass rounded-lg mt-2 p-4 border border-white/10">
             <div className="flex flex-col space-y-4">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
