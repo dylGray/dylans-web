@@ -29,12 +29,12 @@ const Hero = () => {
             I craft digital solutions that blend innovative technology with thoughtful design. 
           </p>
 
-          <p className="text-sm sm:text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Passionate about Artifical Intelligence and the human experience.
+          <p className="text-sm sm:text-lg text-white/90 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+            I'm passionate about Artifical Intelligence and the human experience.
           </p>
 
           {/* Social Links */}
-          <div className="justify-center space-x-6 mb-12">
+          <div className="flex justify-center space-x-6 mb-8 md:mb-12">
             <a
               href="https://github.com/dylGray"
               target="_blank"

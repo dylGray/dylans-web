@@ -16,9 +16,8 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
       <nav className="container mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -29,7 +28,6 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -38,7 +36,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden glass rounded-lg mt-2 p-4 border border-white/10">
             <div className="flex flex-col space-y-4">

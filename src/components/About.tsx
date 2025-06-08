@@ -54,7 +54,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-white mb-2">{exp.title}</h4>
-                    <p className="text-white leading-relaxed">{exp.description}</p>
+                    <p className="text-white leading-relaxed text-sm md:text-lg">{exp.description}</p>
                   </div>
                 </div>
               </div>
