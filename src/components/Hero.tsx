@@ -34,7 +34,7 @@ const Hero = () => {
           </p>
 
           {/* Social Links */}
-          <div className="hidden md:flex justify-center space-x-6 mb-12">
+          <div className="justify-center space-x-6 mb-12">
             <a
               href="https://github.com/dylGray"
               target="_blank"
