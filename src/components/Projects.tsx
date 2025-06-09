@@ -1,13 +1,22 @@
-import { ExternalLink, Github, Globe, BarChart3, Bot } from 'lucide-react';
+import { ExternalLink, Github, Globe, BarChart3, Bot, Gamepad } from 'lucide-react';
 import teamLinkImg from '../assets/images/team-link.jpeg';
 import tpsLogoImg from '../assets/images/tps-logo1.png';
 import naviStructureImg from '../assets/images/navi-structure1.png';
+import mineseeper from '../assets/images/minesweeper.jpg';
 
 declare module '*.jpeg';
 declare module '*.png';
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Minesweeper",
+      description: "A reimagined version of the classic Minesweeper game. This was a college project that focused on object-oriented design and GUI development.",
+      image: mineseeper,
+      technologies: ["Java", "JavaFX", "OOP", "GUI Development", "Unit Testing"],
+      icon: <Gamepad className="w-6 h-6" />,
+      live: ""
+    },
     {
       title: "TeamLink",
       description: "Full-stack web application built to simplify team formation in college courses. This solution won Best Teamwork Award in Indiana University's Informatics Capstone course.",
@@ -36,7 +45,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Featured <span className="text-gradient">Projects</span>
@@ -46,7 +55,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="glass-medium rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group">
               <div className="relative overflow-hidden">
