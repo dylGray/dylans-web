@@ -15,7 +15,18 @@ const Projects = () => {
       image: mineseeper,
       technologies: ["Java", "JavaFX", "OOP", "GUI Development", "Unit Testing"],
       icon: <Gamepad className="w-6 h-6" />,
-      live: ""
+      live: (
+        <a
+          href="https://cdnapisec.kaltura.com/p/1751071/embedPlaykitJs/uiconf_id/55382703?iframeembed=true&amp;entry_id=1_srbpvwcv&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_itf7o5gg%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Watch the Kaltura video: May 2nd 2025, 1:19:04 pm"
+          className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white hover:scale-105 transition-transform duration-200"
+        >
+          <ExternalLink className="w-4 h-4" />
+          <span className="text-sm">Project presentation</span>
+        </a>
+      )
     },
     {
       title: "TeamLink",
@@ -89,15 +100,19 @@ const Projects = () => {
                 </div>
 
                 <div className="flex space-x-4">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white hover:scale-105 transition-transform duration-200"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">Live</span>
-                  </a>
+                  {typeof project.live === 'string' ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white hover:scale-105 transition-transform duration-200"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="text-sm">Live</span>
+                    </a>
+                  ) : (
+                    project.live
+                  )}
                 </div>
               </div>
             </div>
