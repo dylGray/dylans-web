@@ -5,6 +5,10 @@ const FloatingShapes = () => {
       <div className="shape"></div>
       <div className="shape"></div>
       <div className="shape"></div>
+      <div className="shape"></div>
+      <div className="shape"></div>
+      <div className="shape"></div>
+      <div className="shape"></div>
     </div>
   );
 };

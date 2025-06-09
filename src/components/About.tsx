@@ -1,30 +1,30 @@
-import { Code, Palette, Zap, Heart } from 'lucide-react';
+import { Code, Palette, Lightbulb, Users } from 'lucide-react';
 
 const About = () => {
   const experiences = [
     {
       icon: Code,
       iconColor: "text-green-500",
-      title: "Technical Excellence",
-      description: "Experience with modern technologies including React, TypeScript, Node.js, and cloud platforms."
+      title: "Software Development",
+      description: "Hands on experience building robust applications with modern technologies such as React, TypeScript, Node.js, and cloud platforms."
     },
     {
       icon: Palette,
       iconColor: "text-purple-500",
       title: "Design Thinking",
-      description: "Have scaled software systems from the ground-up, and actively maintain production level applications."
+      description: "Skilled in architecting and scaling software systems from the ground up, with a strong focus on user experience and maintainability."
     },
     {
-      icon: Zap,
+      icon: Lightbulb,
       iconColor: "text-yellow-500",
       title: "Problem Solving",
-      description: "Thrive on complex challenges and enjoy breaking down problems into elegant, scalable solutions."
+      description: "Passionate about tackling complex challenges and transforming them into elegant, scalable solutions through creative problem solving."
     },
     {
-      icon: Heart,
-      iconColor: "text-red-500",
-      title: "Passion Driven",
-      description: "I love exploring new tools and pushing the boundaries of what's possible through Artificial Intelligence."
+      icon: Users,
+      iconColor: "text-blue-500",
+      title: "Collaboration",
+      description: "Experienced in working with cross-functional teams, fostering open communication, and driving projects to successful completion."
     }
   ];
 
@@ -37,20 +37,31 @@ const About = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">My Journey</h3>
               <div className="space-y-4 text-white leading-relaxed">
                 <p className='text-sm md:text-lg'>
-                  After two years playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.
+                  After two years of playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.
                 </p>
                 <p className='text-sm md:text-lg'>
-                  Post graudation, I've begun working full-time role at Revenue Path Group as the Director of Product Development & Engineering. At this role, I now design scalable systems, guide clients through technical challenges, and continue to push the boundaries of AI and the human experience.
+                  Post graudation, I've begun working full-time at Revenue Path Group as the Director of Product Development & Engineering. At this role, I now design scalable systems, guide clients through technical challenges, and continue to push the boundaries of AI and the human experience.
+                </p>
+                <p className='text-sm md:text-lg'>
+                  Throughout my time at IU and in my professional career, I've deepened my understanding and curiosity for...
                 </p>
               </div>
           </div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <div key={index} className="glass rounded-xl p-6 hover:scale-105 transition-transform duration-200">
+              <div key={index} className="glass rounded-xl p-6 hover:scale-105 transition-transform duration-200 group">
                 <div className="flex items-start space-x-4">
                   <div className="glass-dark rounded-lg p-3 text-blue-300">
-                    {exp.icon && <exp.icon className={exp.iconColor + " w-7 h-7"} />}
+                  {exp.icon && (
+                    <exp.icon
+                    className={
+                      exp.iconColor +
+                      " w-7 h-7 transition-transform duration-200 " +
+                      (index % 2 === 0 ? "group-hover:-rotate-12" : "group-hover:rotate-12")
+                    }
+                    />
+                  )}
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-white mb-2">{exp.title}</h4>
@@ -59,7 +70,7 @@ const About = () => {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
         </div>
       </div>
     </section>
