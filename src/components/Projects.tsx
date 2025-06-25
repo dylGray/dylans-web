@@ -21,7 +21,7 @@ const Projects = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Watch the Kaltura video: May 2nd 2025, 1:19:04 pm"
-          className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white hover:scale-105 transition-transform duration-200"
+          className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white"
         >
           <ExternalLink className="w-4 h-4" />
           <span className="text-sm">Project presentation</span>
@@ -68,12 +68,12 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="glass-medium rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group">
+            <div key={index} className="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full object-cover transition-transform duration-300"
                   style={{ height: '225px' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -105,7 +105,7 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white hover:scale-105 transition-transform duration-200"
+                      className="flex items-center space-x-2 glass-dark rounded-lg px-4 py-2 text-white transition-transform duration-200"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span className="text-sm">Live</span>
@@ -124,7 +124,7 @@ const Projects = () => {
             href="https://github.com/dylGray"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-medium rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
+            className="glass-medium rounded-full px-8 py-4 text-white font-medium transition-all duration-200 inline-flex items-center space-x-2"
           >
             <Github className="w-5 h-5" />
             <span>View More on GitHub</span>
