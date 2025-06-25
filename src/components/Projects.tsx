@@ -13,7 +13,7 @@ const Projects = () => {
       title: "Minesweeper",
       description: "A reimagined version of the classic Minesweeper game. This was a college project that focused on object-oriented design and GUI development.",
       image: mineseeper,
-      technologies: ["Java", "JavaFX", "OOP", "GUI Development", "Unit Testing"],
+      technologies: ["Java", "JavaFX", "OOP", "GUI Development", "Unit Testing", "Version Control"],
       icon: <Gamepad className="w-6 h-6" />,
       live: (
         <a
@@ -30,7 +30,7 @@ const Projects = () => {
     },
     {
       title: "TeamLink",
-      description: "Full-stack web application built to simplify team formation in college courses. This solution won Best Teamwork Award in Indiana University's Informatics Capstone course.",
+      description: "Full-stack web application built to simplify team formation in college courses. This solution won the Teamwork Award in Indiana University's Informatics Capstone course.",
       image: teamLinkImg,
       technologies: ["JavaScript", "TailwindCSS", "PHP", "MySQL", "OAuth2.0", "Twilio API"],
       icon: <Globe className="w-6 h-6" />,
@@ -38,7 +38,7 @@ const Projects = () => {
     },
     {
       title: "Elevator Pitch Challenge",
-      description: "A marketing tool developed for RPG to highlight where salespeople are struggling in their elevator pitches that leverages AI analysis to provide actionable insights.",
+      description: "An in-house tool developed for RPG to highlight where salespeople are struggling in their elevator pitches; leveraging AI analysis to provide actionable insights.",
       image: tpsLogoImg,
       technologies: ["Python", "JavaScript", "TailwindCSS", "Vercel", "Cloud Firestore", "OpenAI API"],
       icon: <BarChart3 className="w-6 h-6" />,
@@ -50,7 +50,6 @@ const Projects = () => {
       image: naviStructureImg,
       technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Vercel", "Azure AI"],
       icon: <Bot className="w-6 h-6" />,
-      live: "https://navi.theprioritysale.com/auth/login"
     }
   ];
 

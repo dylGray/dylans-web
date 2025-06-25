@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, Heart, Smartphone } from 'lucide-react';
+import Form from './Form';
 
 const Footer = () => {
+  const [showForm, setShowForm] = useState(false);
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Footer = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                 Let's <span className="text-gradient">Connect</span>
               </h2>
-              <p className="text-md md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-sm md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
                 I'm always interested in new opportunities and collaborations.{' '}
                 Whether you have a project in mind or just want to chat about
                 technology, feel free to reach out!
@@ -36,13 +38,15 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-12">
-              <a
-                href="mailto:dylan.gray@revenuepathgroup.com"
+              <button
+                type="button"
+                onClick={() => setShowForm(true)}
                 className="glass-dark rounded-full px-6 py-3 text-white hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-3"
+                aria-label="Open contact form"
               >
                 <Mail className="w-5 h-5" />
-                <span>dylan.gray@revenuepathgroup.com</span>
-              </a>
+                <span className='text-sm md:text-lg'>dylan.gray@revenuepathgroup.com</span>
+              </button>
 
               <a
                 href="tel:123-456-7890"
@@ -74,7 +78,7 @@ const Footer = () => {
 
             <div className="border-t border-white/20 pt-8">
               <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-                <p className="text-white/60 text-sm flex items-center space-x-1">
+                <p className="text-white/60 text-xs md:text-sm flex items-center space-x-1">
                   <span>© {currentYear} Made with</span>
                   <Heart className="w-4 h-4 text-red-400" />
                   <span>by Dylan</span>
@@ -84,6 +88,12 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+      {showForm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <Form onClose={() => setShowForm(false)} />
+        </div>
+      )}
     </>
   );
 };

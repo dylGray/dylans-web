@@ -50,7 +50,7 @@ const About = () => {
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <div key={index} className="glass rounded-xl p-6 hover:scale-105 transition-transform duration-200 group">
+              <div key={index} className="glass rounded-xl p-6 hover:shadow-xl transition-transform duration-200 group">
                 <div className="flex items-start space-x-4">
                   <div className="glass-dark rounded-lg p-3 text-blue-300">
                   {exp.icon && (
