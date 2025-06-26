@@ -53,8 +53,13 @@ const Hero = () => {
             <button
               type="button"
               className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
-              onClick={() => setShowForm(true)}
-              aria-label="Open contact form"
+              onClick={() => {
+                const footer = document.getElementById('contact');
+                if (footer) {
+                  footer.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              aria-label="Scroll to contact/footer"
             >
               <Mail className="w-6 h-6 text-white" />
             </button>

@@ -38,20 +38,19 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-12">
-              <button
-                type="button"
-                onClick={() => setShowForm(true)}
-                className="glass-dark rounded-full px-6 py-3 text-white hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-3"
-                aria-label="Open contact form"
-              >
-                <Mail className="w-5 h-5" />
-                <span className='text-sm md:text-lg'>dylan.gray@revenuepathgroup.com</span>
-              </button>
+                <a
+                  href="#"
+                  className="glass-dark rounded-full px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
+                  aria-label="Send email to Dylan"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span className='text-sm md:text-lg'>dylan.gray@revenuepathgroup.com</span>
+                </a>
 
-              <a
-                href="tel:123-456-7890"
-                className="glass-dark rounded-full px-6 py-3 text-white hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-3"
-              >
+                <a
+                  href="tel:317-500-0233"
+                  className="glass-dark rounded-full px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
+                >
                 <Smartphone className="w-5 h-5" />
                 <span>317-500-0233</span>
               </a>
@@ -81,7 +80,7 @@ const Footer = () => {
                 <p className="text-white/60 text-xs md:text-sm flex items-center space-x-1">
                   <span>© {currentYear} Made with</span>
                   <Heart className="w-4 h-4 text-red-400" />
-                  <span>by Dylan</span>
+                  <span>by Dylan. Hosted with Vercel.</span>
                 </p>
               </div>
             </div>
