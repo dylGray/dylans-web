@@ -39,7 +39,7 @@ const Footer = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-12">
                 <a
-                  href="#"
+                  href=""
                   className="glass-dark rounded-full px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
                   aria-label="Send email to Dylan"
                 >
