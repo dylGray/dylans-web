@@ -62,7 +62,7 @@ const About = () => {
             My Core Skills & Experience
             <span className="hidden md:inline-block mt-4 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
           </h2>
-          <p className="text-white/80 text-base sm:text-lg max-w-4xl mb-2 px-1">
+          <p className="text-white/80 text-sm md:text-xl mb-2 px-1">
             Throughout my time in college and in the workforce, I've gained experience in these key areas:
           </p>
           {experiences.map((exp, index) => (
