@@ -58,7 +58,7 @@ const About = () => {
         </div>
 
         <div className="space-y-6 md:pt-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gradient -mb-2 flex gap-3 px-1">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white/90 -mb-2 flex gap-3 px-1">
             My Core Skills & Experience
             <span className="hidden md:inline-block mt-4 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
           </h2>
