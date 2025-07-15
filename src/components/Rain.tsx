@@ -5,26 +5,26 @@ interface RainDropProps {
 }
 
 // declares a functional component that must match the properties of RainDropProps
-const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 15 }) => {
+const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 10 }) => {
 
-  // this check of the viewport to reduce rain drops isn't working
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // // this check of the viewport to reduce rain drops isn't working
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-    window.addEventListener('resize', handleResize);
+  //   window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); 
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []); 
 
-  const isMobile = windowWidth < 768;
-  const finalNumberOfDrops = isMobile ? 10 : numberOfDrops;
+  // const isMobile = windowWidth < 768;
+  // const finalNumberOfDrops = isMobile ? 10 : numberOfDrops;
 
   const rain = useMemo(() => {
     const newRain = [];
@@ -49,7 +49,7 @@ const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 15 }) => {
     );
   }
   return newRain;
-}, [finalNumberOfDrops]);
+}, [numberOfDrops]);
 
   return (
     <div className='rain-drops'>
