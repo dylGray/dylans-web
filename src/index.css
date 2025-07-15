@@ -45,24 +45,24 @@ body {
   background-clip: text;
 }
 
-.floating-shapes {
+.rain-drops {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: -1; 
 }
-
 .shape {
   position: absolute;
-  width: 3px;
-  height: 50px;
-  background: rgba(173, 216, 230, 0.3);
-  border-radius: 50% 50% 50% 50%;
-  transform: rotate(0deg);
-  animation: fall linear infinite;
+  top: -100px;
+  width: 2px;
+  background: rgba(173, 216, 230, 0.4);
+  border-radius: 2px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .shape:nth-child(1) {
@@ -90,15 +90,6 @@ body {
 }
 
 @keyframes fall {
-  0% {
-    top: -10%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    top: 110%;
-    opacity: 0;
-  }
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(100vh + 100px)); }
 }

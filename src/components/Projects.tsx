@@ -58,9 +58,9 @@ const Projects = () => {
       <div className="w-full mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">
-            Featured <span className="text-gradient">Projects</span>
+            Featured Projects
           </h2>
-          <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Here are some of the projects I've worked on that showcase my technical skills and creative problem-solving abilities.
           </p>
         </div>
@@ -83,7 +83,7 @@ const Projects = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-white mb-4 leading-relaxed text-sm">
+                <p className="text-white/80 mb-4 leading-relaxed text-sm">
                   {project.description}
                 </p>
 

@@ -7,13 +7,13 @@ const About = () => {
       icon: Code,
       iconColor: "text-green-500",
       title: "Software Development",
-      description: "Hands on experience building robust applications with modern technologies such as React, TypeScript, Node.js, and cloud platforms."
+      description: "Hands on experience building web applications with modern technologies such as React, TypeScript, Node.js, and cloud platforms."
     },
     {
       icon: Palette,
       iconColor: "text-purple-500",
       title: "Design Thinking",
-      description: "Skilled in architecting and scaling software systems from the ground up, with a strong focus on user experience and maintainability."
+      description: "Experience in architecting and scaling software systems from the ground up, with a strong focus on user experience and maintainability."
     },
     {
       icon: Lightbulb,
@@ -25,7 +25,7 @@ const About = () => {
       icon: Users,
       iconColor: "text-blue-500",
       title: "Collaboration",
-      description: "Experienced in working with cross-functional teams, fostering open communication, and driving projects to successful completion."
+      description: "Lead cross-functional teams, fostering open communication, and driving projects to successful completion."
     }
   ];
 
@@ -36,11 +36,11 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="glass rounded-2xl p-8 relative overflow-visible">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">My Journey</h3>
-              <div className="space-y-4 text-white leading-relaxed">
-                <p className='text-sm md:text-lg'>
+              <div className="space-y-4 leading-relaxed">
+                <p className='text-sm md:text-lg text-white/90'>
                   After two years of playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.
                 </p>
-                <p className='text-sm md:text-lg'>
+                <p className='text-sm md:text-lg text-white/90'>
                   Post graudation, I've begun working full-time at Revenue Path Group as a Product Developer and Engineer. At this role, I now design scalable systems, guide clients through technical challenges, and continue to push the boundaries of AI and the human experience.
                 </p>
               </div>
@@ -58,11 +58,11 @@ const About = () => {
         </div>
 
         <div className="space-y-6 md:pt-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white/90 -mb-2 flex gap-3 px-1">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white -mb-2 flex gap-3 px-1">
             My Core Skills & Experience
             <span className="hidden md:inline-block mt-4 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
           </h2>
-          <p className="text-white/80 text-sm md:text-xl mb-2 px-1">
+          <p className="text-white/90 text-sm md:text-xl mb-2 px-1">
             Throughout my time in college and in the workforce, I've gained experience in these key areas:
           </p>
           {experiences.map((exp, index) => (
@@ -81,7 +81,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-white mb-2">{exp.title}</h4>
-                  <p className="text-white leading-relaxed text-sm md:text-lg">{exp.description}</p>
+                  <p className="text-white/90 leading-relaxed text-sm md:text-lg">{exp.description}</p>
                 </div>
               </div>
             </div>
