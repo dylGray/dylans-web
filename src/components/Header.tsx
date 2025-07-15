@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, CloudRain } from 'lucide-react';
 
-
+// The RainToggleButton component remains unchanged.
 interface RainToggleProps {
   isRainOn: boolean;
   onToggle: () => void;
@@ -11,7 +11,7 @@ interface RainToggleProps {
 const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
-    className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+    className={`flex space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
       isRainOn 
         ? 'bg-blue-500/80 text-white hover:bg-blue-400/80' 
         : 'bg-white/10 text-white hover:bg-white/20'
@@ -44,8 +44,8 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
       <nav className="container mx-auto px-2 md:px-4">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          {/* Logo or Left-side Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
             {['About', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
@@ -57,21 +57,33 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
             ))}
           </div>
 
-          {/* Desktop Rain Toggle */}
-          <div className="hidden md:block">
-            <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
-          </div>
+          {/* Right Side Controls */}
+          <div className="flex items-center">
+            {/* Desktop Rain Toggle: Visible on medium screens and up */}
+            <div className="hidden md:block">
+              <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {/* Mobile Controls: Visible on screens smaller than medium */}
+            <div className="flex items-center justify-end w-full md:hidden">
+              {/* Mobile Menu Button */}
+              <button
+                className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+
+              {/* Rain toggle will now sit on the far right */}
+              <div style={{ marginLeft: '175px' }}>
+                <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Collapsible Mobile Menu (Links Only) */}
         {isMenuOpen && (
           <div className="md:hidden glass rounded-lg p-4 border border-white/10 mb-4">
             <div className="flex flex-col space-y-4">
@@ -84,11 +96,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   {item}
                 </button>
               ))}
-              
-              {/* Mobile Rain Toggle */}
-              <div className="pt-4 border-t border-white/10">
-                <RainToggleButton isRainOn={showRain} onToggle={setShowRain} className="justify-center" />
-              </div>
+              {/* The RainToggleButton has been removed from this section */}
             </div>
           </div>
         )}
@@ -96,6 +104,5 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
     </header>
   );
 };
-
 
 export default Header;
