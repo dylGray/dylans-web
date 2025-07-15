@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 interface RainDropProps {
   numberOfDrops?: number;
@@ -6,6 +6,26 @@ interface RainDropProps {
 
 // declares a functional component that must match the properties of RainDropProps
 const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 15 }) => {
+
+  // this check of the viewport to reduce rain drops isn't working
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+  const isMobile = windowWidth < 768;
+  const finalNumberOfDrops = isMobile ? 10 : numberOfDrops;
+
   const rain = useMemo(() => {
     const newRain = [];
 
@@ -29,7 +49,7 @@ const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 15 }) => {
     );
   }
   return newRain;
-}, [numberOfDrops]);
+}, [finalNumberOfDrops]);
 
   return (
     <div className='rain-drops'>
