@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Globe, BarChart3, Bot, Gamepad } from 'lucide-react';
+import { ExternalLink, Github, Globe, BarChart3, Bot, Gamepad, Folder } from 'lucide-react';
 import teamLinkImg from '../assets/images/team-link.jpeg';
 import tpsLogoImg from '../assets/images/tps-logo1.png';
 import naviStructureImg from '../assets/images/navi-structure1.png';
@@ -60,6 +60,11 @@ const Projects = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">
             Featured Projects
           </h2>
+          <div className="flex justify-center mb-6">
+            <div className="glass-dark rounded-full p-3">
+              <Folder className="w-8 h-8 text-blue-300" />
+            </div>
+          </div>
           <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Here are some of the projects I've worked on that showcase my technical skills and creative problem-solving abilities.
           </p>
