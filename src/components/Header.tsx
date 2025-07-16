@@ -23,7 +23,6 @@ const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, class
   </button>
 );
 
-
 interface HeaderProps {
   showRain: boolean;
   setShowRain: () => void;
@@ -65,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
             </div>
 
             {/* Mobile Controls: Visible on screens smaller than medium */}
-            <div className="flex items-center justify-end w-full md:hidden">
+            <div className="flex items-center space-x-3 md:hidden">
               {/* Mobile Menu Button */}
               <button
                 className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
@@ -75,10 +74,8 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
-              {/* Rain toggle will now sit on the far right */}
-              <div style={{ marginLeft: '175px' }}>
-                <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
-              </div>
+              {/* Mobile Rain Toggle */}
+              <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
             </div>
           </div>
         </div>
@@ -96,7 +93,6 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   {item}
                 </button>
               ))}
-              {/* The RainToggleButton has been removed from this section */}
             </div>
           </div>
         )}
