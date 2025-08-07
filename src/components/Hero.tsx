@@ -1,10 +1,7 @@
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import { useState } from 'react';
 import dylAndMagsImg from '../assets/images/dyl-and-mags.jpg';
-import Form from './Form';
 
 const Hero = () => {
-  const [showForm, setShowForm] = useState(false);
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -73,11 +70,6 @@ const Hero = () => {
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </button>
         </div>
-        {showForm && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-            <Form onClose={() => setShowForm(false)} />
-          </div>
-        )}
       </div>
     </section>
   );

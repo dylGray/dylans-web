@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <>
-      <div id="background-darken" className="mt-24"></div>
+      <div id="background-darken" className="mt-28"></div>
       <div id="background-overlay"></div>
       <footer id="contact" className="w-full bottom-0 left-0 z-50 bg-transparent">
         <div className="mx-auto">
