@@ -54,15 +54,16 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
             Previous and On-Going Development
           </h2>
-          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-md sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-2">
             Here are some of the projects I've lead, colloborated on, and have built myself.
           </p>
+          <span className="inline-block w-16 h-1 mt-4 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">

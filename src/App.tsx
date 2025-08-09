@@ -5,6 +5,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import RainDrops from './components/Rain';
+import Experience from './components/Experience';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Experience />
         <Projects />
       </main>
       <Footer />

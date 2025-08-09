@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, Heart, Smartphone } from 'lucide-react';
+import { Github, Linkedin, Mail, Smartphone } from 'lucide-react';
 import Form from './Form';
 
 const Footer = () => {
   const [showForm, setShowForm] = useState(false);
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,9 +78,7 @@ const Footer = () => {
             <div className="border-t border-white/20 pt-8">
               <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
                 <p className="text-white/60 text-xs md:text-sm flex items-center space-x-1">
-                  <span>© {currentYear} Made with</span>
-                  <Heart className="w-4 h-4 text-red-400" />
-                  <span>by Dylan. Hosted with Vercel.</span>
+                  <span>Have a great rest of your day.</span>
                 </p>
               </div>
             </div>

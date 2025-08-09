@@ -20,7 +20,7 @@ const Hero = () => {
             alt="Dylan and Mags"
             className="mx-auto mb-6 w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-white/20 shadow-lg"
           />
-          <p className="text-lg sm:text-xl lg:text-2xl text-white mb-4 md:mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl text-white mb-4 leading-relaxed">
             Developer & Problem Solver
           </p>
           <p className="text-xs sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
