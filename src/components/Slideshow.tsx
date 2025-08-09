@@ -3,8 +3,14 @@ import typescriptIcon from '../assets/images/typescript-icon.png';
 import reactIcon from '../assets/images/react-icon.png';
 import tailwindIcon from '../assets/images/tailwind-icon.png';
 import nextjsIcon from '../assets/images/nextjs-icon.webp';
+import postgresqlIcon from '../assets/images/postgresql-icon.png';
 import gitIcon from '../assets/images/git-icon.png';
-import aiIcon from '../assets/images/ai-icon.png';
+import githubIcon from '../assets/images/github-icon.png';
+import chatgptIcon from '../assets/images/chatgpt-icon.png';
+import claudeIcon from '../assets/images/claude-icon.png';
+import geminiIcon from '../assets/images/gemini-icon.png';
+import graphApiIcon from '../assets/images/graphapi-icon.png';
+import googleApiIcon from '../assets/images/googleapi-icon.png';
 
 interface TechTool {
   id: number;
@@ -18,51 +24,70 @@ interface TechTool {
 const techTools: TechTool[] = [
   {
     id: 1,
-    name: 'TypeScript',
-    category: 'Programming Language',
-    icon: <img src={typescriptIcon} alt="TypeScript" className="w-16 h-16 object-contain" />,
-    description: "This app is built with TypeScript, and it's a great mix for frontend and backend development.",
+    name: 'Programming Languages',
+    category: 'UI/UX Development',
+    icon: (
+      <div className="flex items-center justify-center gap-2">
+        <img src={typescriptIcon} alt="TypeScript" className="w-12 h-12 object-contain" />
+        <img src={reactIcon} alt="React" className="w-12 h-12 object-contain" />
+        <img src={tailwindIcon} alt="Tailwind CSS" className="w-12 h-12 object-contain" />
+      </div>
+    ),
+    description: "TypeScript, React, and Tailwind CSS are my go-to tools for building modern, scalable web applications.",
     color: 'text-blue-600'
   },
   {
     id: 2,
-    name: 'React',
-    category: 'Frontend Framework',
-    icon: <img src={reactIcon} alt="React" className="w-16 h-16 object-contain" />,
-    description: 'JavaScript library for building user interfaces in a component-based architecture.',
-    color: 'text-cyan-600'
-  },
- {
-    id: 3,
-    name: 'Tailwind CSS',
-    category: 'CSS Framework',
-    icon: <img src={tailwindIcon} alt="Tailwind CSS" className="w-16 h-16 object-contain" />,
-    description: 'Utility-first CSS framework for rapidly building custom designs without leaving your HTML.',
-    color: 'text-teal-600'
-  },
-  {
-    id: 4,
-    name: 'Next.js',
-    category: 'Full-Stack Framework',
-    icon: <img src={nextjsIcon} alt="Next.js" className="w-16 h-16 object-contain" />,
-    description: 'React framework for building fast, server-rendered applications with static site generation and API routes.',
+    name: 'Scaling & Frameworks',
+    category: 'Full-Stack & Databases',
+    icon: (
+      <div className="flex items-center justify-center gap-2">
+        <img src={nextjsIcon} alt="Next.js" className="w-14 h-14 object-contain" />
+        <img src={postgresqlIcon} alt="PostgreSQL" className="w-14 h-14 object-contain" />
+      </div>
+    ),
+    description: "I use Next.js for full-stack React apps and PostgreSQL for robust, scalable data storage.",
     color: 'text-gray-800'
   },
   {
-    id: 5,
-    name: 'Git',
-    category: 'Version Control',
-    icon: <img src={gitIcon} alt="Git" className="w-16 h-16 object-contain" />,
-    description: 'Distributed version control system for tracking changes and collaborating on code.',
+    id: 3,
+    name: 'Version Control',
+    category: 'Collaboration',
+    icon: (
+      <div className="flex items-center justify-center gap-2">
+        <img src={gitIcon} alt="Git" className="w-12 h-12 object-contain" />
+        <img src={githubIcon} alt="GitHub" className="w-12 h-12 object-contain" />
+      </div>
+    ),
+    description: "Heavily rely on Git and GitHub for version control and collaboration on projects.",
     color: 'text-orange-600'
   },
-{
-    id: 6,
-    name: 'Generative AI',
+  {
+    id: 4,
+    name: 'AI & LLMs',
     category: 'Productivity & Innovation',
-    icon: <img src={aiIcon} alt="Generative AI" style={{ width: '135px', height: '135px', marginBottom: '-30px' }} className="object-contain" />,
-    description: 'Building and leveraging AI models for various usecases and applications.',
-    color: 'text-orange-600'
+    icon: (
+      <div className="flex items-center justify-center gap-2">
+        <img src={chatgptIcon} alt="ChatGPT" className="w-12 h-12 object-contain" />
+        <img src={claudeIcon} alt="Claude" className="w-12 h-12 object-contain" />
+        <img src={geminiIcon} alt="Gemini" className="w-12 h-12 object-contain" />
+      </div>
+    ),
+    description: "I leverage AI tools like ChatGPT, Claude, and Gemini to boost productivity and explore new possibilities.",
+    color: 'text-purple-600'
+  },
+{
+    id: 5,
+    name: 'API Integration',
+    category: 'Enterprise Solutions',
+    icon: (
+      <div className="flex items-center justify-center gap-2">
+        <img src={graphApiIcon} alt="GraphAPI" className="w-12 h-12 object-contain" />
+        <img src={googleApiIcon} alt="GoogleAPI" className="w-12 h-12 object-contain" />
+      </div>
+    ),
+    description: "Integrate and work with various APIs to enhance functionality and streamline workflows.",
+    color: 'text-purple-600'
   },
 ];
 
@@ -79,8 +104,8 @@ export const TechSlideshow: React.FC = () => {
       setTimeout(() => {
         setCurrentSlide((prev) => (prev + 1) % techTools.length);
         setIsAnimating(false);
-      }, 100);  // animation duration
-    }, 4000);   // change slide every 4 seconds
+      }, 400);  // animation duration
+    }, 4200);   // slide duration
 
     return () => clearInterval(interval);
   }, [isPlaying]);
@@ -91,7 +116,7 @@ export const TechSlideshow: React.FC = () => {
     setTimeout(() => {
       setCurrentSlide(index);
       setIsAnimating(false);
-    }, 100);
+    }, 400); // match animation duration
   };
 
   const currentTool = techTools[currentSlide];
@@ -120,7 +145,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '100ms' }}
           >
-            <h2 className="text-2xl font-bold mb-2 text-white">
+            <h2 className="text-2xl font-bold mb-1 text-white">
               {currentTool.name}
             </h2>
           </div>
@@ -133,7 +158,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '200ms' }}
           >
-            <p className="text-lg font-medium mb-4 text-white/90">
+            <p className="text-md font-medium mb-4 text-white/90">
               {currentTool.category}
             </p>
           </div>

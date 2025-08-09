@@ -5,7 +5,7 @@ interface RainDropProps {
 }
 
 // declares a functional component that must match the properties of RainDropProps
-const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 10 }) => {
+const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops = 8 }) => {
 
   // // this check of the viewport to reduce rain drops isn't working
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
