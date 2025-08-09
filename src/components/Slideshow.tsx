@@ -116,7 +116,7 @@ export const TechSlideshow: React.FC = () => {
     setTimeout(() => {
       setCurrentSlide(index);
       setIsAnimating(false);
-    }, 400); // match animation duration
+    }, 400); 
   };
 
   const currentTool = techTools[currentSlide];

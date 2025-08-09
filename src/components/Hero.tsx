@@ -28,7 +28,6 @@ const Hero = () => {
             I'm passionate about Artifical Intelligence and the human experience.
           </p>
 
-          {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-8 md:mb-12">
             <a
               href="https://github.com/dylGray"
@@ -60,8 +59,7 @@ const Hero = () => {
               <Mail className="w-6 h-6 text-white" />
             </button>
           </div>
-
-          {/* CTA Button */}
+          
           <button
             onClick={scrollToAbout}
             className="glass-dark rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"

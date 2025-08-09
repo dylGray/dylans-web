@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, } from 'react';
 import { Github, Linkedin, Mail, Smartphone } from 'lucide-react';
-import Form from './Form';
 
 const Footer = () => {
-  const [showForm, setShowForm] = useState(false);
   // const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -85,12 +83,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
-      {showForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-          <Form onClose={() => setShowForm(false)} />
-        </div>
-      )}
     </>
   );
 };

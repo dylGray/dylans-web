@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, } from 'lucide-react';
 
-// Animated Cloud Component that responds to rain state
 interface AnimatedCloudProps {
   showRain: boolean;
   className?: string;
@@ -36,7 +35,6 @@ const AnimatedCloud: React.FC<AnimatedCloudProps> = ({ showRain, className = '' 
   );
 };
 
-// The RainToggleButton component with integrated cloud
 interface RainToggleProps {
   isRainOn: boolean;
   onToggle: () => void;
@@ -53,7 +51,6 @@ const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, class
     } backdrop-blur-sm border border-white/20 hover:border-white/40 ${className}`}
     title={isRainOn ? 'Stop Rain' : 'Start Rain'}
   >
-    {/* Replace CloudRain icon with animated cloud */}
     <AnimatedCloud showRain={isRainOn} />
     <span className="font-medium text-xs">{isRainOn ? 'Stop Rain' : 'Start Rain'}</span>
   </button>
@@ -77,8 +74,8 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
 
   return (
     <>
-      {/* CSS Animations */}
-      <style>{`
+      <style>
+        {`
         @keyframes rainDrop {
           0% {
             transform: translateY(-5px);
@@ -97,7 +94,8 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
         .animate-float {
           animation: cloudFloat 3s ease-in-out infinite;
         }
-      `}</style>
+      `}
+      </style>
 
       <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
         <nav className="container mx-auto px-2 md:px-4">
