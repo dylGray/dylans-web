@@ -7,7 +7,7 @@ const experiences = [
     icon: Code,
     iconColor: "text-green-500",
     title: "Software Development",
-    description: "Hands on experience building web applications with modern technologies such as React, TypeScript, Node.js, and cloud platforms."
+    description: "Hands on experience building web applications with modern technologies such as React, TypeScript, Next.js, and cloud platforms."
   },
   {
     icon: Palette,
@@ -46,7 +46,7 @@ const ExperienceAndSlideshow: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 space-y-4 md:mt-8 px-4 md:px-0">
             {experiences.map((exp, index) => (
-                <div key={index} className="glass rounded-xl p-6 hover:shadow-xl transition-transform duration-200 group">
+                <div key={index} className="glass rounded-xl p-3 hover:shadow-xl transition-transform duration-200 group">
                   <div className="flex items-start space-x-4">
                       <div className="glass-dark rounded-lg p-3 text-blue-300">
                       {exp.icon && (
