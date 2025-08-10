@@ -33,7 +33,7 @@ const ExperienceAndSlideshow: React.FC = () => {
   return (
     <section className="w-full px-2 sm:px-4 lg:px-8 py-12">
         <div className="max-w-7xl mx-auto px-2">
-            <h2 className="text-2xl sm:text-3xl mb-2 font-bold text-white gap-3 px-1 text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl mb-2 font-bold text-white gap-3 px-1 text-center md:text-left">
                 Skills and Experience<span className="hidden md:inline-block ml-3 mb-1.5 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
             </h2>
             <p className="text-white/90 w-full text-sm md:text-xl mb-2 px-1 text-center md:text-left">

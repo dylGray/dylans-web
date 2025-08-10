@@ -38,8 +38,8 @@ const techTools: TechTool[] = [
   },
   {
     id: 2,
-    name: 'Scaling & Frameworks',
-    category: 'Full-Stack & Databases',
+    name: 'Frameworks & Databases',
+    category: 'Full-stack development',
     icon: (
       <div className="flex items-center justify-center gap-2">
         <img src={nextjsIcon} alt="Next.js" className="w-14 h-14 object-contain" />
@@ -158,7 +158,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '200ms' }}
           >
-            <p className="text-md font-medium mb-4 text-white/90">
+            <p className="text-md md:text-lg font-medium mb-4 text-white/90">
               {currentTool.category}
             </p>
           </div>
@@ -171,7 +171,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '300ms' }}
           >
-            <p className="text-xs md:text-sm max-w-md mx-auto leading-relaxed text-white/80">
+            <p className="text-xs md:text-base max-w-md mx-auto leading-relaxed text-white/80">
               {currentTool.description}
             </p>
           </div>

@@ -10,7 +10,7 @@ import Experience from './components/Experience';
 import AI from './components/Chat';
 
 function AppContent() {
-  const [showRain, setShowRain] = useState(true);
+  const [showRain, setShowRain] = useState(false);
   const location = useLocation();
 
   const handleToggleRain = () => {

@@ -7,7 +7,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="glass rounded-2xl p-8 relative overflow-visible">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">My Journey</h3>
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-3">My Journey</h3>
             <span className="inline-block mb-3 w-12 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
               <div className="space-y-4 leading-relaxed">
                 <p className='text-sm md:text-lg text-white/90'>
