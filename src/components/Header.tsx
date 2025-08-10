@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, } from 'lucide-react';
 import navIcon from '../assets/images/nav-icon.jpg';
+import { Link } from 'react-router-dom';
 
 interface AnimatedCloudProps {
   showRain: boolean;
@@ -102,11 +103,12 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
         <nav className="container mx-auto px-2 md:px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="flex items-center group mr-2" aria-label="Home">
+                <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
                 <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
-              </a>
-              {['About', 'Projects', 'Contact', 'Chat with Dyl.IO'].map((item) => (
+                </Link>
+              {['About', 'Projects', 'Contact'].map((item) => (
                 <button
+                 id="nav-links"
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
                   className="text-white hover:underline transition-colors duration-200 font-medium"
@@ -114,6 +116,13 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   {item}
                 </button>
               ))}
+              {/* <Link
+                id="nav-links"
+                to="/chat"
+                className="text-white hover:underline transition-colors duration-200 font-medium"
+              >
+                Chat with Dyl.IO
+              </Link> */}
             </div>
 
             <div className="flex items-center">
