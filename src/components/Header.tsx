@@ -147,6 +147,9 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
           {isMenuOpen && (
             <div className="md:hidden glass rounded-lg p-4 border border-white/10 mb-4">
               <div className="flex flex-col space-y-4">
+                <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
+                <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
+                </Link>
                 {['About', 'Projects', 'Contact'].map((item) => (
                   <button
                     key={item}

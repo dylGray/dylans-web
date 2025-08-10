@@ -145,7 +145,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '100ms' }}
           >
-            <h2 className="text-2xl font-bold mb-1 text-white">
+            <h2 className="text-xl font-bold mb-1 text-white">
               {currentTool.name}
             </h2>
           </div>
