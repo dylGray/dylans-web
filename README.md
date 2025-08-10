@@ -8,7 +8,7 @@ A modern, personal portfolio website built with React, TypeScript, Vite, and Tai
 - ⚡️ Fast development and production builds with Vite
 - 🎨 UI built with Tailwind CSS
 - 💻 Fully responsive and mobile-friendly
-- 🧩 Modular React components (Header, Footer, About, Projects, Hero, FloatingShapes)
+- 🧩 Modular React components
 - 🤖 Local LLM chat powered by Ollama and Mistral-7B (in development)
 
 ## Local LLM Chat Integration
