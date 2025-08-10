@@ -32,7 +32,7 @@ const Projects = () => {
       title: "TeamLink",
       description: "Full-stack web application built to simplify team formation in college courses. This solution won the Teamwork Award in Indiana University's Informatics Capstone course.",
       image: teamLinkImg,
-      technologies: ["JavaScript", "TailwindCSS", "PHP", "MySQL", "OAuth2.0", "Twilio API"],
+      technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API"],
       icon: <Globe className="w-6 h-6" />,
       live: "https://cgi.luddy.indiana.edu/~team23/app/pages/home.php"
     },
@@ -54,7 +54,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: '125px 0 100px 0' }} id="projects" className="px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
