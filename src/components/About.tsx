@@ -6,8 +6,9 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="glass rounded-2xl p-6 relative overflow-visible">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">My Journey<span className="inline-block mb-2 ml-2 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" /></h3>
+          <div className="glass rounded-2xl p-8 relative overflow-visible">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">My Journey</h3>
+            <span className="inline-block mb-3 w-12 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
               <div className="space-y-4 leading-relaxed">
                 <p className='text-sm md:text-lg text-white/90'>
                   After two years of playing college baseball, I transferred to the Luddy School of Informatics, Computing, and Engineering at Indiana University and discovered a deep love and curiosity for technology. I ended up graduating with a B.S. in Informatics, specializing in Human-Centered Computing and Web Design/Development.

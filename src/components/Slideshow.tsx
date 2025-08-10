@@ -171,7 +171,7 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '300ms' }}
           >
-            <p className="text-sm max-w-md mx-auto leading-relaxed text-white/80">
+            <p className="text-xs md:text-sm max-w-md mx-auto leading-relaxed text-white/80">
               {currentTool.description}
             </p>
           </div>
