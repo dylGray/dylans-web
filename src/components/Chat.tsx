@@ -24,24 +24,20 @@ const llmChat: React.FC = () => {
     }
   };
 
+  // scroll to bottom when message array is updated, regardless of streaming
   useEffect(() => {
-    if (isStreaming) {
+    if (isStreaming || !isStreaming) {
       scrollToBottom();
     }
-  }, [messages, isStreaming]);
-
-  React.useEffect(() => {
-    scrollToBottom();
   }, [messages]);
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // adding new user message to the chat history
+    // adding new user message to the chat history, and updating state
     const userMessage: Message = { role: 'user', content: input };
     setMessages((prev) => [...prev, userMessage]);
-
     setInput('');
     setLoading(true);
     setIsStreaming(false);
