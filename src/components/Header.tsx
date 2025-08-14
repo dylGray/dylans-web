@@ -116,13 +116,13 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   {item}
                 </button>
               ))}
-              <Link
+              {/* <Link
                 id="nav-links"
                 to="/chat"
                 className="text-white hover:underline transition-colors duration-200 font-medium"
               >
                 Chat with Dyl.IO
-              </Link>
+              </Link> */}
             </div>
 
             <div className="flex items-center">
