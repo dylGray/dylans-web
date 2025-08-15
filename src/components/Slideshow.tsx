@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import typescriptIcon from '../assets/images/typescript-icon.png';
 import reactIcon from '../assets/images/react-icon.png';
 import tailwindIcon from '../assets/images/tailwind-icon.png';
-import nextjsIcon from '../assets/images/nextjs-icon.webp';
-import postgresqlIcon from '../assets/images/postgresql-icon.png';
 import gitIcon from '../assets/images/git-icon.png';
 import githubIcon from '../assets/images/github-icon.png';
 import chatgptIcon from '../assets/images/chatgpt-icon.png';
@@ -38,19 +36,6 @@ const techTools: TechTool[] = [
   },
   {
     id: 2,
-    name: 'Frameworks & Databases',
-    category: 'Full-stack development',
-    icon: (
-      <div className="flex items-center justify-center gap-2">
-        <img src={nextjsIcon} alt="Next.js" className="w-14 h-14 object-contain" />
-        <img src={postgresqlIcon} alt="PostgreSQL" className="w-14 h-14 object-contain" />
-      </div>
-    ),
-    description: "I use Next.js for full-stack React apps and PostgreSQL for robust, scalable data storage.",
-    color: 'text-gray-800'
-  },
-  {
-    id: 3,
     name: 'Version Control',
     category: 'Collaboration',
     icon: (
@@ -63,7 +48,7 @@ const techTools: TechTool[] = [
     color: 'text-orange-600'
   },
   {
-    id: 4,
+    id: 3,
     name: 'AI & LLMs',
     category: 'Productivity & Innovation',
     icon: (
@@ -77,7 +62,7 @@ const techTools: TechTool[] = [
     color: 'text-purple-600'
   },
 {
-    id: 5,
+    id: 4,
     name: 'API Integration',
     category: 'Enterprise Solutions',
     icon: (
