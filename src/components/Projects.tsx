@@ -30,7 +30,20 @@ const Projects = () => {
     },
     {
       title: "TeamLink",
-      description: "Full-stack web application built to simplify team formation in college courses. This solution won the Teamwork Award in Indiana University's Informatics Capstone course.",
+      description: (
+        <>
+          Full-stack web application built to simplify team formation in college courses. This solution won the{' '}
+            <a
+            href="https://zion.luddy.indiana.edu/info-capstone-2025/teamlink"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+            >
+            Teamwork Award
+            </a>
+          {' '}in Indiana University's Informatics Capstone course.
+        </>
+      ),
       image: teamLinkImg,
       technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API"],
       icon: <Globe className="w-6 h-6" />,
@@ -56,7 +69,7 @@ const Projects = () => {
   return (
     <section style={{ padding: '125px 20px 100px 20px' }} id="projects" className="px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-2">
             Previous and On-Going Development
           </h2>

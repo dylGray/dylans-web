@@ -49,3 +49,5 @@ export default function App() {
     </Router>
   );
 }
+
+console.log('what are you doing snooping around in dev tools?')

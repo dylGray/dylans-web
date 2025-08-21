@@ -14,7 +14,8 @@ const Hero = () => {
       <div className="text-center max-w-5xl mx-auto">
         <div className="glass rounded-3xl p-8 sm:p-12 lg:p-16">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Hi, I'm <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Dylan</span>          </h1>
+            Hi, I'm Dylan
+          </h1>
           <img
             src={dylAndMagsImg}
             alt="Dylan and Mags"
@@ -23,11 +24,11 @@ const Hero = () => {
           <p className="text-lg sm:text-xl lg:text-2xl text-white mb-4 leading-relaxed">
             Developer & Problem Solver
           </p>
-          <p className="text-xs sm:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-lg text-white/90 mb-3 md:mb-6 max-w-2xl mx-auto leading-relaxed">
             I craft digital solutions that blend innovative technology with thoughtful design. 
             I'm passionate about Artifical Intelligence and the human experience.
           </p>
-
+          <span className="inline-block mb-3 md:mb-6 w-16 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
           <div className="flex justify-center space-x-6 mb-8 md:mb-12">
             <a
               href="https://github.com/dylGray"
