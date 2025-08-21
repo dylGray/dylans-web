@@ -89,8 +89,8 @@ export const TechSlideshow: React.FC = () => {
       setTimeout(() => {
         setCurrentSlide((prev) => (prev + 1) % techTools.length);
         setIsAnimating(false);
-      }, 400);  // animation duration
-    }, 4200);   // slide duration
+      }, 350);  // animation duration
+    }, 3750);   // slide duration
 
     return () => clearInterval(interval);
   }, [isPlaying]);

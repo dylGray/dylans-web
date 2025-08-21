@@ -65,7 +65,7 @@ const Hero = () => {
             className="glass-dark rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
           >
             <span>More About Me</span>
-            <ChevronDown className="w-5 h-5 animate-bounce" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         </div>
       </div>
