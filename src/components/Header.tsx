@@ -107,23 +107,27 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
                 <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
                 </Link>
-              {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
-                <button
-                 id="nav-links"
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-white hover:underline transition-colors duration-200 font-medium"
-                >
-                  {item}
-                </button>
+              {['About', 'Projects', 'Contact', "Chat with LLM's"].map((item) => (
+                item === "Chat with LLM's" ? (
+                  <Link
+                    id="nav-links"
+                    key={item}
+                    to="/chat"
+                    className="text-white hover:underline transition-colors duration-200 font-medium"
+                  >
+                    {item}
+                  </Link>
+                ) : (
+                  <button
+                    id="nav-links"
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="text-white hover:underline transition-colors duration-200 font-medium"
+                  >
+                    {item}
+                  </button>
+                )
               ))}
-              <Link
-                id="nav-links"
-                to="/chat"
-                className="text-white hover:underline transition-colors duration-200 font-medium"
-              >
-                LLM's
-              </Link>
             </div>
 
             <div className="flex items-center">
@@ -151,14 +155,24 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
                 <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
                 </Link>
-                {['About', 'Projects', 'Contact'].map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left py-2"
-                  >
-                    {item}
-                  </button>
+                {['About', 'Projects', 'Contact', "Chat with LLM's"].map((item) => (
+                  item === "Chat with LLM's" ? (
+                    <Link
+                      key={item}
+                      to="/chat"
+                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left py-2"
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(item.toLowerCase())}
+                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left py-2"
+                    >
+                      {item}
+                    </button>
+                  )
                 ))}
               </div>
             </div>
