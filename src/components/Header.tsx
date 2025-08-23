@@ -103,12 +103,12 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
       <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
         <nav className="container mx-auto px-2 md:px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            <div className="hidden md:flex items-center space-x-8">
-                <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
-                <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
-                </Link>
-              {['About', 'Projects', 'Contact', "Chat with LLM's"].map((item) => (
-                item === "Chat with LLM's" ? (
+            <div id="home-image" className="hidden md:flex items-center space-x-8">
+              <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
+              <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
+              </Link>
+              {['About', 'Projects', 'Contact', "dylan.io"].map((item) => (
+                item === "dylan.io" ? (
                   <Link
                     id="nav-links"
                     key={item}
@@ -137,6 +137,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
 
               <div className="flex items-center space-x-3 md:hidden">
                 <button
+                  id="menu-button"
                   className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   aria-label="Toggle menu"
@@ -152,23 +153,31 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
           {isMenuOpen && (
             <div className="md:hidden glass rounded-lg p-4 border border-white/10 mb-4">
               <div className="flex flex-col space-y-4">
-                <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
-                <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
+                <Link
+                  to="/"
+                  className="flex items-center group mr-2" aria-label="Home"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
                 </Link>
-                {['About', 'Projects', 'Contact', "Chat with LLM's"].map((item) => (
-                  item === "Chat with LLM's" ? (
+                {['About', 'Projects', 'Contact', "dylan.io"].map((item) => (
+                  item === "dylan.io" ? (
                     <Link
                       key={item}
                       to="/chat"
-                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left py-2"
+                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left"
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {item}
                     </Link>
                   ) : (
                     <button
                       key={item}
-                      onClick={() => scrollToSection(item.toLowerCase())}
-                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left py-2"
+                      onClick={() => {
+                        scrollToSection(item.toLowerCase());
+                        setIsMenuOpen(false);
+                      }}
+                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left"
                     >
                       {item}
                     </button>

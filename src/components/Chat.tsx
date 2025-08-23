@@ -192,7 +192,7 @@ const llmChat: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="rounded-xl border border-white/10 p-4 bg-white/5">
                 <h4 className="text-sm font-semibold mb-2">Key Features</h4>
-                <ul className="list-disc list-inside space-y-1 text-xs text-gray-200">
+                <ul className="list-disc pl-5 text-left space-y-1 text-xs text-gray-200">
                   {modelInfo.features.map((f, i) => (
                     <li key={i}>{f}</li>
                   ))}
@@ -201,7 +201,7 @@ const llmChat: React.FC = () => {
 
               <div className="rounded-xl border border-white/10 p-4 bg-white/5">
                 <h4 className="text-sm font-semibold mb-2">Strengths</h4>
-                <ul className="list-disc list-inside space-y-1 text-xs text-gray-200">
+                <ul className="list-disc pl-5 text-left space-y-1 text-xs text-gray-200">
                   {modelInfo.strengths.map((s, i) => (
                     <li key={i}>{s}</li>
                   ))}
@@ -243,8 +243,12 @@ const llmChat: React.FC = () => {
       <>
         <style>
           {`
-            #nav-links {
+            #nav-links, #menu-button {
               display: none !important;
+            }
+
+            #home-image {
+              display: flex !important;
             }
           `}
         </style>
@@ -252,7 +256,7 @@ const llmChat: React.FC = () => {
         <ModelInfoModal />
 
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
-          <h2 className="text-xl md:text-3xl mb-8 text-center">Switch between Large Language Model's</h2>
+          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Switch between Large Language Model's</h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="flex items-center gap-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl p-2">

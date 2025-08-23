@@ -59,9 +59,9 @@ const Projects = () => {
     },
     {
       title: "Navi",
-      description: "An agentic B2B sales AI solution designed to help sales teams improve their performance through AI-driven insights and proprietary data.",
+      description: "A B2B sales tool designed to help sales teams improve their performance through AI-driven insights and proprietary data.",
       image: naviStructureImg,
-      technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Vercel", "Azure AI"],
+      technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Azure", "Azure AI Foundry"],
       icon: <Bot className="w-6 h-6" />,
     }
   ];
