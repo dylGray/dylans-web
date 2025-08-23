@@ -129,7 +129,7 @@ const llmChat: React.FC = () => {
         provider: 'Google',
         description: 'Google\'s fast and versatile AI model designed for diverse tasks.',
         features: [
-          'Multimodal capabilities (text, images, audio, video)',
+          'Multimodal capabilities',
           'Large context window up to 1 million tokens',
           'Fast inference speed',
           'Advanced reasoning capabilities',
