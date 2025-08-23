@@ -5,6 +5,8 @@ interface Message {
   content: string;
 }
 
+// test
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // set CORS headers to prevent CORS errors
