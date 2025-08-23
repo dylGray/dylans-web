@@ -1,4 +1,3 @@
-import { MessagesSquare } from 'lucide-react';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 interface Message {
@@ -22,13 +21,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  let body: any;
-
   try {
-    const { provider, messages } = body;
+    const { provider, messages } = req.body;
 
-    if (!provider || !MessagesSquare) {
-      return res.status(400).json({ error: 'Missing provider or messages' });
+    if (!provider) {
+      return res.status(400).json({ error: 'Missing provider' });
     }
 
     console.log('Recieved request:', { provider, messages });
