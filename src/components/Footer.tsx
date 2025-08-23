@@ -31,7 +31,7 @@ const Footer = () => {
               <p className="text-sm md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
                 I'm always interested in new opportunities and collaborations.{' '}
                 Whether you have a project in mind or just want to chat about
-                technology, feel free to reach out!
+                tech, feel free to reach out!
               </p>
             </div>
 

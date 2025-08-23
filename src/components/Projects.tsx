@@ -73,7 +73,7 @@ const Projects = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-2">
             Previous and On-Going Development
           </h2>
-          <p className="text-md sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-2">
+          <p className="text-sm sm:text-xl text-white/90 max-w-3xl mx-auto sm:leading-relaxed mb-2">
             Here are some of the projects I've lead, colloborated on, and have built myself.
           </p>
           <span className="inline-block w-16 h-1 mt-4 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />

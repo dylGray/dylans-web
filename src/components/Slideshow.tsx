@@ -49,7 +49,7 @@ const techTools: TechTool[] = [
   },
   {
     id: 3,
-    name: 'AI & LLMs',
+    name: 'Generative AI',
     category: 'Productivity & Innovation',
     icon: (
       <div className="flex items-center justify-center gap-2">
@@ -58,7 +58,7 @@ const techTools: TechTool[] = [
         <img src={geminiIcon} alt="Gemini" className="w-12 h-12 object-contain" />
       </div>
     ),
-    description: "I leverage AI tools like ChatGPT, Claude, and Gemini to boost productivity and explore new possibilities.",
+    description: "I leverage LLM's like ChatGPT, Claude, and Gemini to boost productivity and build innovative solutions.",
     color: 'text-purple-600'
   },
 {

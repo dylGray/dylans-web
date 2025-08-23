@@ -16,6 +16,7 @@ const AnimatedCloud: React.FC<AnimatedCloudProps> = ({ showRain, className = '' 
           <div className="absolute -top-1 left-1 w-5 h-5 bg-white/90 rounded-full"></div>
           <div className="absolute -top-0.5 right-2 w-4 h-4 bg-white/90 rounded-full"></div>
           <div className="absolute -top-0.5 left-3 w-3 h-3 bg-white/90 rounded-full"></div>
+          <div className="absolute -top-0.5 left-3 w-3 h-3 bg-white/90 rounded-full"></div>
         </div>
       </div>
       
@@ -116,13 +117,13 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   {item}
                 </button>
               ))}
-              {/* <Link
+              <Link
                 id="nav-links"
                 to="/chat"
                 className="text-white hover:underline transition-colors duration-200 font-medium"
               >
-                Chat with Dyl.IO
-              </Link> */}
+                Chat
+              </Link>
             </div>
 
             <div className="flex items-center">

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, User, Loader2, Network } from 'lucide-react';
+import { Send, User, Loader2, BrainCircuit, Sparkles } from 'lucide-react';
 import navIcon from '../assets/images/nav-icon.jpg';
 
 interface Message {
@@ -11,6 +11,7 @@ const llmChat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);  // tracking full chat history
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [selectedModel, setSelectedModel] = useState<'gpt-3.5-turbo' | 'gemini-1.5-flash'>('gpt-3.5-turbo');
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isStreaming, setIsStreaming] = useState(false);
@@ -42,75 +43,38 @@ const llmChat: React.FC = () => {
     setLoading(true);
     setIsStreaming(false);
 
-    let assistantContent = '';
+    // call Vercel serverless API route with correct provider
+    let provider: 'openai' | 'gemini' = selectedModel === 'gpt-3.5-turbo' ? 'openai' : 'gemini';
+    let model = selectedModel;
 
-    // using local Ollama api server, calling the Mistral-7b model
-    const response = await fetch('http://localhost:11434/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'mistral', 
-        messages: [...messages, userMessage].map(({ role, content }) => ({ role, content })),
-      }),
-    });
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          provider,
+          model,
+          messages: [...messages, userMessage],
+        }),
+      });
 
-    if (!response.body) {
-      setLoading(false);
-      return;
-    }
+      const data = await response.json();
+      let assistantContent = '';
 
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder('utf-8');
-    let done = false;
-    let buffer = '';
-
-    let receivedFirstToken = false;
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-
-      if (value) {
-        // decode the stream (binary chunks) and handle line breaks
-        buffer += decoder.decode(value, { stream: true });
-        let lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-
-        for (const line of lines) {
-          if (!line.trim()) continue;
-
-          try {
-            const json = JSON.parse(line);
-            if (json.message && json.message.content) {
-              assistantContent += json.message.content;
-
-              // hide loading indicator as soon as the first token is received
-              if (!receivedFirstToken) {
-                setLoading(false);
-                setIsStreaming(true);
-                receivedFirstToken = true;
-              }
-
-              setMessages((prev) => {
-                // if last message is from assistant, keep updating as response is streamed
-                // else, start new assistant message
-                if (prev.length && prev[prev.length - 1].role === 'assistant') {
-                  return [
-                    ...prev.slice(0, -1),
-                    { role: 'assistant', content: assistantContent },
-                  ];
-                } else {
-                  return [...prev, { role: 'assistant', content: assistantContent }];
-                }
-              });
-            }
-          } catch (err) {
-            console.error('Error parsing JSON:', err);
-          }
-        }
+      if (provider === 'openai') {
+        assistantContent = data.choices?.[0]?.message?.content || 'No response.';
+      } else if (provider === 'gemini') {
+        assistantContent = data.candidates?.[0]?.content?.parts?.[0]?.text
+          || data.candidates?.[0]?.content?.text
+          || 'No response.';
       }
+
+      setMessages((prev) => [...prev, { role: 'assistant', content: assistantContent }]);
+    } catch (err) {
+      setMessages((prev) => [...prev, { role: 'assistant', content: 'Error: Unable to fetch response.' }]);
+    } finally {
+      setLoading(false);
     }
-    // If no tokens were received, still hide loading
-    if (!receivedFirstToken) setLoading(false);
   };
 
   // initial state
@@ -126,13 +90,40 @@ const llmChat: React.FC = () => {
         </style>
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
           <div className="text-center mb-8">
-            <h1 className="text-5xl font-light bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
-              Dylan.IO
-            </h1>
-            <p>This chat tool is ran locally; conversations never leave your device.</p>
-            <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mt-2">
-              <span>Running Mistral-7b</span>
-              <Network className="w-5 h-5 text-blue-400" />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="flex items-center gap-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl p-2">
+                <button
+                  onClick={() => setSelectedModel('gpt-3.5-turbo')}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    selectedModel === 'gpt-3.5-turbo'
+                      ? 'bg-blue-500 text-white shadow-lg'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  GPT-3.5 Turbo
+                </button>
+                <button
+                  onClick={() => setSelectedModel('gemini-1.5-flash')}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    selectedModel === 'gemini-1.5-flash'
+                      ? 'bg-purple-500 text-white shadow-lg'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  Gemini-1.5 Flash
+                </button>
+              </div>
+            </div>
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-4">
+              <span className="text-xs md:text-sm">Currently using: {selectedModel}</span>
+              <span className="flex items-center gap-1">
+                {selectedModel === 'gpt-3.5-turbo' && (
+                  <BrainCircuit className="w-5 h-5 text-blue-400" />
+                )}
+                {selectedModel === 'gemini-1.5-flash' && (
+                  <Sparkles className="w-5 h-5 text-purple-400" />
+                )}
+              </span>
             </div>
           </div>
           <div className="w-full max-w-2xl">
@@ -145,7 +136,7 @@ const llmChat: React.FC = () => {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Get to know Dylan, or ask about anything..."
+                    placeholder="Ask anything..."
                     disabled={loading}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' && !e.shiftKey) {
@@ -239,7 +230,7 @@ const llmChat: React.FC = () => {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Get to know Dylan, or ask about anything..."
+                  placeholder="Ask anything..."
                   disabled={loading}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && !e.shiftKey) {
