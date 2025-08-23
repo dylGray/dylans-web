@@ -5,20 +5,7 @@ interface Message {
   content: string;
 }
 
-// test
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-
-  // set CORS headers to prevent CORS errors
-  // not sure what this does, will research later
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -34,6 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     let apiResponse;
 
+    // client is using gpt-3.5-turbo
     if (provider === 'openai') {
 
       if (!process.env.OPENAI_API_KEY) {
@@ -69,6 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(500).json({ error: 'Error calling OpenAI API' });
       }
 
+    // client is using gemini-1.5-flash
     } else if (provider === 'gemini') {
       if (!process.env.GOOGLE_GEMINI_API_KEY) {
         console.error('GOOGLE_GEMINI_API_KEY not found in environment variables');

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, User, Loader2, BrainCircuit, Sparkles } from 'lucide-react';
+import { Send, User, Loader2, BrainCircuit, Sparkles, RotateCcw } from 'lucide-react';
 import navIcon from '../assets/images/nav-icon.jpg';
 
 interface Message {
@@ -23,6 +23,12 @@ const llmChat: React.FC = () => {
         block: 'end'
       });
     }
+  };
+
+  // handler to clear chat
+  const handleRestartChat = () => {
+    setMessages([]);
+    setInput('');
   };
 
   // scroll to bottom when message array is updated, regardless of streaming
@@ -225,6 +231,15 @@ const llmChat: React.FC = () => {
             <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
               <div className="absolute inset-0"></div>
               <div className="relative flex items-center">
+                <button
+                  type="button"
+                  className="ml-2 p-0 bg-transparent border-none shadow-none flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-200"
+                  title="Restart chat"
+                  onClick={handleRestartChat}
+                  tabIndex={-1}
+                >
+                  <RotateCcw className="w-5 h-5" />
+                </button>
                 <input
                   className="flex-1 px-6 py-4 bg-transparent text-white/90 placeholder-gray-500 focus:outline-none border-none shadow-none"
                   type="text"

@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
                 <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
                 </Link>
-              {['About', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
                 <button
                  id="nav-links"
                   key={item}
@@ -122,7 +122,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 to="/chat"
                 className="text-white hover:underline transition-colors duration-200 font-medium"
               >
-                Chat
+                LLM's
               </Link>
             </div>
 
