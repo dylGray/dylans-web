@@ -242,21 +242,35 @@ const llmChat: React.FC = () => {
     return (
       <>
         <style>
-          {`
+            {`
             #nav-links, #menu-button {
               display: none !important;
             }
 
             #home-image {
               display: flex !important;
+              min-width: fit-content !important;
+              flex-shrink: 0 !important;
             }
-          `}
+
+            #home-image img {
+              width: 32px !important;
+              height: 32px !important;
+              flex-shrink: 0 !important;
+            }
+
+            @media (max-width: 768px) {
+              button[title*="Rain"] {
+              display: none !important;
+              }
+            }
+            `}
         </style>
 
         <ModelInfoModal />
 
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
-          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Switch between Large Language Model's</h2>
+          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Chat with popular LLM's.</h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="flex items-center gap-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl p-2">
@@ -362,8 +376,26 @@ const llmChat: React.FC = () => {
     <>
       <style>
         {`
-          #nav-links {
+          #nav-links, #menu-button {
             display: none !important;
+          }
+
+          #home-image {
+            display: flex !important;
+            min-width: fit-content !important;
+            flex-shrink: 0 !important;
+          }
+
+          #home-image img {
+            width: 32px !important;
+            height: 32px !important;
+            flex-shrink: 0 !important;
+          }
+
+          @media (max-width: 768px) {
+            button[title*="Rain"] {
+              display: none !important;
+            }
           }
         `}
       </style>
@@ -390,7 +422,7 @@ const llmChat: React.FC = () => {
                     />
                   )}
                 </div>
-                <div className={`max-w-[75%] backdrop-blur-xl bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-yellow-400/10 border border-blue-200/30 rounded-2xl px-6 py-4 shadow-lg`}>
+                <div className={`max-w-[75%] backdrop-blur-xl border border-blue-200/30 rounded-2xl px-6 py-4 shadow-lg`}>
                   <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
                     {msg.content}
                   </div>

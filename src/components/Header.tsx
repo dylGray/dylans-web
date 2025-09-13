@@ -97,6 +97,12 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
         .animate-float {
           animation: cloudFloat 3s ease-in-out infinite;
         }
+        
+        @media (max-width: 768px) {
+          button[title*="Rain"] {
+          display: none !important;
+          }
+        }
       `}
       </style>
 
@@ -105,10 +111,10 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div id="home-image" className="hidden md:flex items-center space-x-8">
               <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
-              <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
+              <img src={navIcon} alt="Home" className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover flex-shrink-0" />
               </Link>
-              {['About', 'Projects', 'Contact', "dylan.io"].map((item) => (
-                item === "dylan.io" ? (
+              {['About', 'Projects', 'Contact', "Chat"].map((item) => (
+                item === "Chat" ? (
                   <Link
                     id="nav-links"
                     key={item}
@@ -130,23 +136,21 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
               ))}
             </div>
 
-            <div className="flex items-center">
-              <div className="hidden md:block">
-                <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
-              </div>
+            <div className="hidden md:block">
+              <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
+            </div>
 
-              <div className="flex items-center space-x-3 md:hidden">
-                <button
-                  id="menu-button"
-                  className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  aria-label="Toggle menu"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+            <div className="flex items-center justify-between w-full md:hidden">
+              <button
+                id="menu-button"
+                className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
 
-                <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
-              </div>
+              <RainToggleButton isRainOn={showRain} onToggle={setShowRain} />
             </div>
           </div>
 
@@ -158,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                   className="flex items-center group mr-2" aria-label="Home"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <img src={navIcon} alt="Home" className="w-9 h-9 rounded-full object-cover" />
+                  <img src={navIcon} alt="Home" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
                 </Link>
                 {['About', 'Projects', 'Contact', "dylan.io"].map((item) => (
                   item === "dylan.io" ? (

@@ -9,6 +9,7 @@ import claudeIcon from '../assets/images/claude-icon.png';
 import geminiIcon from '../assets/images/gemini-icon.png';
 import graphApiIcon from '../assets/images/graphapi-icon.png';
 import googleApiIcon from '../assets/images/googleapi-icon.png';
+import twilioApiIcon from '../assets/images/twilio-logo.png';
 
 interface TechTool {
   id: number;
@@ -54,11 +55,11 @@ const techTools: TechTool[] = [
     icon: (
       <div className="flex items-center justify-center gap-2">
         <img src={chatgptIcon} alt="ChatGPT" className="w-12 h-12 object-contain" />
-        <img src={claudeIcon} alt="Claude" className="w-12 h-12 object-contain" />
         <img src={geminiIcon} alt="Gemini" className="w-12 h-12 object-contain" />
+        <img src={claudeIcon} alt="Claude" className="w-12 h-12 object-contain" />
       </div>
     ),
-    description: "I leverage LLM's like ChatGPT, Claude, and Gemini to boost productivity and build innovative solutions.",
+    description: "I leverage LLM's like ChatGPT, Gemini, and Claude to boost productivity and build innovative solutions.",
     color: 'text-purple-600'
   },
 {
@@ -69,6 +70,7 @@ const techTools: TechTool[] = [
       <div className="flex items-center justify-center gap-2">
         <img src={graphApiIcon} alt="GraphAPI" className="w-12 h-12 object-contain" />
         <img src={googleApiIcon} alt="GoogleAPI" className="w-12 h-12 object-contain" />
+        <img src={twilioApiIcon} alt="TwilioAPI" className="w-12 h-12 object-contain" />
       </div>
     ),
     description: "Integrate and work with various APIs to enhance functionality and streamline workflows.",

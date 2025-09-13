@@ -45,7 +45,7 @@ const Projects = () => {
         </>
       ),
       image: teamLinkImg,
-      technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API"],
+      technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API's"],
       icon: <Globe className="w-6 h-6" />,
       live: "https://cgi.luddy.indiana.edu/~team23/app/pages/home.php"
     },
@@ -70,7 +70,7 @@ const Projects = () => {
     <section style={{ padding: '125px 20px 100px 20px' }} id="projects" className="px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-4xl lg:text-4xl font-bold text-white mb-2 leading-tight">
             Previous and On-Going Development
           </h2>
           <p className="text-sm sm:text-xl text-white/90 max-w-3xl mx-auto sm:leading-relaxed mb-2">
