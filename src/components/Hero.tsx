@@ -34,21 +34,21 @@ const Hero = () => {
               href="https://github.com/dylGray"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
+              className="glass-dark rounded-full p-3 group"
             >
-              <Github className="w-6 h-6 text-white" />
+              <Github className="w-6 h-6 text-white transition-transform duration-200 group-hover:-rotate-12" />
             </a>
             <a
               href="https://www.linkedin.com/in/dylan-gray-255107217/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
+              className="glass-dark rounded-full p-3 group"
             >
-              <Linkedin className="w-6 h-6 text-white" />
+              <Linkedin className="w-6 h-6 text-white transition-transform duration-200 group-hover:rotate-12" />
             </a>
             <button
               type="button"
-              className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
+              className="glass-dark rounded-full p-3 group"
               onClick={() => {
                 const footer = document.getElementById('contact');
                 if (footer) {
@@ -57,17 +57,19 @@ const Hero = () => {
               }}
               aria-label="Scroll to contact/footer"
             >
-              <Mail className="w-6 h-6 text-white" />
+              <Mail className="w-6 h-6 text-white transition-transform duration-200 group-hover:-rotate-12" />
             </button>
           </div>
           
-          <button
-            onClick={scrollToAbout}
-            className="glass-dark rounded-full px-8 py-4 text-white font-medium hover:scale-105 transition-all duration-200 hover:animate-glow inline-flex items-center space-x-2"
-          >
-            <span>More About Me</span>
-            <ChevronDown className="w-5 h-5" />
-          </button>
+          <div className="-mt-2">
+            <button
+              onClick={scrollToAbout}
+              className="text-white font-medium inline-flex items-center space-x-2"
+            >
+              <span>More About Me</span>
+              <ChevronDown className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

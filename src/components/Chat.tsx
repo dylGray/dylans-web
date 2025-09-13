@@ -3,6 +3,7 @@ import { Send, User, Loader2, RotateCcw, X, Info } from 'lucide-react';
 import navIcon from '../assets/images/nav-icon.jpg';
 import gptLogo from '../assets/images/gpt-logo.png';
 import geminiLogo from '../assets/images/gemini-icon.png';
+import { marked } from 'marked';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -10,7 +11,7 @@ interface Message {
 }
 
 const llmChat: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);  // tracking full chat history
+  const [messages, setMessages] = useState<Message[]>([]);  // tracking full chat history in session
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState<'gpt-3.5-turbo' | 'gemini-1.5-flash'>('gpt-3.5-turbo');
@@ -18,6 +19,7 @@ const llmChat: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isStreaming, setIsStreaming] = useState(false);
   const [isModelInfoOpen, setIsModelInfoOpen] = useState(false);
+  const [typingMessage, setTypingMessage] = useState<string | null>(null);
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -56,12 +58,12 @@ const llmChat: React.FC = () => {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // adding new user message to the chat history, and updating state
     const userMessage: Message = { role: 'user', content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setLoading(true);
     setIsStreaming(false);
+    setTypingMessage(null);
 
     let provider: 'openai' | 'gemini' = selectedModel === 'gpt-3.5-turbo' ? 'openai' : 'gemini';
     let model = selectedModel;
@@ -88,9 +90,24 @@ const llmChat: React.FC = () => {
           || 'No response.';
       }
 
-      setMessages((prev) => [...prev, { role: 'assistant', content: assistantContent }]);
+      // typing effect applied to LLM output
+      let i = 0;
+      setTypingMessage('');
+      const type = () => {
+        setTypingMessage((prev) => (prev ?? '') + assistantContent[i]);
+        i++;
+        if (i < assistantContent.length) {
+          setTimeout(type, 18); // typing speed
+        } else {
+          setMessages((prev) => [...prev, { role: 'assistant', content: assistantContent }]);
+          setTypingMessage(null);
+        }
+      };
+      if (assistantContent.length > 0) type();
+      else setMessages((prev) => [...prev, { role: 'assistant', content: assistantContent }]);
     } catch (err) {
       setMessages((prev) => [...prev, { role: 'assistant', content: 'Error: Unable to fetch response.' }]);
+      setTypingMessage(null);
     } finally {
       setLoading(false);
     }
@@ -397,6 +414,18 @@ const llmChat: React.FC = () => {
               display: none !important;
             }
           }
+
+          .markdown-body h1 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5em; color: #fff; }
+          .markdown-body h2 { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5em; color: #fff; }
+          .markdown-body h3 { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5em; color: #fff; }
+          .markdown-body p { margin-bottom: 0.5em; }
+          .markdown-body ul { margin-left: 1.5em; margin-bottom: 0.5em; }
+          .markdown-body li { margin-bottom: 0.25em; }
+          .markdown-body code { background: #22223b; color: #f1faee; padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
+          .markdown-body pre { background: #22223b; color: #f1faee; padding: 1em; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
+          .markdown-body strong { color: #facc15; }
+          .markdown-body em { color: #a5b4fc; }
+          .markdown-body blockquote { border-left: 4px solid #818cf8; background: #232946; color: #c7d2fe; padding: 0.5em 1em; margin: 0.5em 0; border-radius: 0.5em; }
         `}
       </style>
 
@@ -423,13 +452,26 @@ const llmChat: React.FC = () => {
                   )}
                 </div>
                 <div className={`max-w-[75%] backdrop-blur-xl border border-blue-200/30 rounded-2xl px-6 py-4 shadow-lg`}>
-                  <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
-                    {msg.content}
-                  </div>
+                  <div className="whitespace-pre-wrap text-white/90 leading-relaxed markdown-body" dangerouslySetInnerHTML={{ __html: marked.parse(msg.content) }} />
                 </div>
               </div>
             ))}
-            {loading && (
+            {typingMessage && (
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 backdrop-blur-xl border border-white/20 shadow-lg">
+                  <img
+                    src={navIcon}
+                    alt="web logo"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-blue-400 shadow"
+                  />
+                </div>
+                <div className="max-w-[75%] backdrop-blur-xl border border-blue-200/30 rounded-2xl px-6 py-4 shadow-lg">
+                  <div className="whitespace-pre-wrap text-white/90 leading-relaxed markdown-body" dangerouslySetInnerHTML={{ __html: marked.parse(typingMessage) }} />
+                  <span className="animate-pulse">|</span>
+                </div>
+              </div>
+            )}
+            {loading && !typingMessage && (
               <div className="flex gap-4">
                 <div className="">
                   <div className="flex items-center gap-3 text-gray-600">

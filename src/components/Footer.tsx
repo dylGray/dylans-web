@@ -58,17 +58,17 @@ const Footer = () => {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
+                  className="glass-medium rounded-full p-3 group"
                 >
-                  <Github className="w-6 h-6 text-white" />
+                  <Github className="w-6 h-6 text-white transition-transform duration-200 group-hover:-rotate-12" />
                 </a>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-dark rounded-full p-3 hover:scale-110 transition-transform duration-200 hover:animate-glow"
+                  className="glass-medium rounded-full p-3 group"
                 >
-                  <Linkedin className="w-6 h-6 text-white" />
+                  <Linkedin className="w-6 h-6 text-white transition-transform duration-200 group-hover:rotate-12" />
                 </a>
               </div>
             </div>

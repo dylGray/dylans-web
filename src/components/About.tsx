@@ -2,7 +2,7 @@ import doodsImg from '../doods.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="md:pt-32 md:pb-20 p-16 px-4">
       <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -26,7 +26,7 @@ const About = () => {
               className="w-[550px] h-[400px] object-cover rounded-3xl shadow-2xl border-4 border-white/30 mb-4 -mt-16 lg:-ml-16"
               style={{ objectPosition: 'center' }}
             />
-            <span className="text-base text-white/80 italic mt-2 drop-shadow-lg">I'm the cool looking guy on the left</span>
+            <span className="text-sm text-white/80 italic drop-shadow-lg">I'm the cool looking guy on the far left</span>
           </div>
         </div>
       </div>
