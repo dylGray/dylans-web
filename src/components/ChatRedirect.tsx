@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatInterface from '../assets/images/chat-interface.png';
+import { Link } from 'react-router-dom';
 
 const PageHighlight: React.FC = () => {
   return (
@@ -18,13 +19,13 @@ const PageHighlight: React.FC = () => {
           <span className="inline-block w-16 h-1 my-5 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
 
           <div>
-            <a
-              href="/chat"
+            <Link
+              to="/chat"
               className="glass-medium rounded-full px-6 py-3 text-white font-medium transition-all duration-200 inline-flex items-center space-x-2"
             >
               Start Chatting
 
-            </a>
+            </Link>
           </div>
 
           <div className="mt-2 p-6 rounded-xl max-w-5xl mx-auto">
