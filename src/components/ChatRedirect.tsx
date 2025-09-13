@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const PageHighlight: React.FC = () => {
   return (
       <div className="mx-auto text-center max-w-5xl pt-8">
-        <div className="mx-auto max-w-5xl rounded-3xl mt-4 md:mt-0 p-2 md:p-8 md:p-12">
+        <div className="mx-auto max-w-5xl rounded-3xl mt-2 md:mt-0 p-4 md:p-8 md:p-12">
           <div className="space-y-6">
             <h2 className="text-2xl md:text-4xl font-bold text-white -mb-3">
               Tinkering with LLM's
