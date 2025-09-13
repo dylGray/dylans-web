@@ -2,12 +2,12 @@ import React from 'react';
 import ChatInterface from '../assets/images/chat-interface.png';
 import { Link } from 'react-router-dom';
 
-const PageHighlight: React.FC = () => {
+const ChatShowcase: React.FC = () => {
   return (
-      <div className="mx-auto text-center max-w-5xl pt-8">
+      <div className="mx-auto text-center max-w-5xl pt-8 pb-12">
         <div className="mx-auto max-w-5xl rounded-3xl mt-2 md:mt-0 p-4 md:p-8 md:p-12">
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-bold text-white -mb-3">
+            <h2 className="text-2xl md:text-4xl font-bold text-white -mb-4 md:-mb-3">
               Some cool stuff
             </h2>
 
@@ -41,4 +41,4 @@ const PageHighlight: React.FC = () => {
   );
 };
 
-export default PageHighlight;
+export default ChatShowcase;

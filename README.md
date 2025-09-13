@@ -15,4 +15,4 @@ Currently, the chat supports toggling between two large language models:
 - **OpenAI GPT-3.5-Turbo**
 - **Google Gemini-1.5-Flash**
 
-More models will be available soon, once I pay for more credits...
+More will be available soon

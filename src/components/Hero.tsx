@@ -66,7 +66,7 @@ const Hero = () => {
               onClick={scrollToAbout}
               className="text-white font-medium inline-flex items-center space-x-2"
             >
-              <span>More About Me</span>
+              <span className="text-xs md:text-base">More About Me</span>
               <ChevronDown className="w-5 h-5" />
             </button>
           </div>

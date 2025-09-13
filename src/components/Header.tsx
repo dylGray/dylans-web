@@ -164,8 +164,8 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 >
                   <img src={navIcon} alt="Home" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
                 </Link>
-                {['About', 'Projects', 'Contact', "dylan.io"].map((item) => (
-                  item === "dylan.io" ? (
+                {['About', 'Projects', 'Contact', "Chat"].map((item) => (
+                  item === "Chat" ? (
                     <Link
                       key={item}
                       to="/chat"
