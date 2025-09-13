@@ -12,11 +12,19 @@ const PageHighlight: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-lg text-white/90 max-w-4xl mx-auto sm:leading-relaxed mb-2">
-              Toggle between frontier Large Language Models (LLM's). Currently, you can switch between GPT-3.5 Turbo and Gemini 1.5 Flash to see how different models respond to your prompts.
+              Toggle between frontier Large Language Models (LLM's). Currently, you can switch between GPT-3.5 Turbo and Gemini 1.5 Flash.
             </p>
           </div>
 
-          <span className="inline-block w-16 h-1 my-5 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
+          <span className="inline-block w-16 h-1 mt-5 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
+
+          <div className="p-6 rounded-xl max-w-5xl mx-auto">
+            <div className="text-center text-gray-400">
+              <div className="bg-gradient-to-r from-blue-500/10 to-purple-300/10 p-2 rounded-xl inline-block">
+                <img src={ChatInterface} alt="Chat Interface Preview" className="w-full max-w-5xl mx-auto rounded-xl shadow-2xl border border-white/20" />
+              </div>
+            </div>
+          </div>
 
           <div>
             <Link
@@ -26,14 +34,6 @@ const PageHighlight: React.FC = () => {
               Start Chatting
 
             </Link>
-          </div>
-
-          <div className="mt-2 p-6 rounded-xl max-w-5xl mx-auto">
-            <div className="text-center text-gray-400">
-              <div className="bg-gradient-to-r from-blue-500/10 to-purple-300/10 p-2 rounded-xl inline-block">
-                <img src={ChatInterface} alt="Chat Interface Preview" className="w-full max-w-5xl mx-auto rounded-xl shadow-2xl border border-white/20" />
-              </div>
-            </div>
           </div>
         </div>
       </div>

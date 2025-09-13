@@ -27,9 +27,9 @@ const techTools: TechTool[] = [
     category: 'UI/UX Development',
     icon: (
       <div className="flex items-center justify-center gap-2">
-        <img src={typescriptIcon} alt="TypeScript" className="w-12 h-12 object-contain" />
-        <img src={reactIcon} alt="React" className="w-12 h-12 object-contain" />
-        <img src={tailwindIcon} alt="Tailwind CSS" className="w-12 h-12 object-contain" />
+        <img src={typescriptIcon} alt="TypeScript" className="w-10 h-10 object-contain" />
+        <img src={reactIcon} alt="React" className="w-10 h-10 object-contain" />
+        <img src={tailwindIcon} alt="Tailwind CSS" className="w-10 h-10 object-contain" />
       </div>
     ),
     description: "TypeScript, React, and Tailwind CSS are my go-to tools for building modern, scalable web applications.",
@@ -41,8 +41,8 @@ const techTools: TechTool[] = [
     category: 'Collaboration',
     icon: (
       <div className="flex items-center justify-center gap-2">
-        <img src={gitIcon} alt="Git" className="w-12 h-12 object-contain" />
-        <img src={githubIcon} alt="GitHub" className="w-12 h-12 object-contain" />
+        <img src={gitIcon} alt="Git" className="w-10 h-10 object-contain" />
+        <img src={githubIcon} alt="GitHub" className="w-10 h-10 object-contain" />
       </div>
     ),
     description: "Heavily rely on Git and GitHub for version control and collaboration on projects.",
@@ -54,9 +54,9 @@ const techTools: TechTool[] = [
     category: 'Productivity & Innovation',
     icon: (
       <div className="flex items-center justify-center gap-2">
-        <img src={chatgptIcon} alt="ChatGPT" className="w-12 h-12 object-contain" />
-        <img src={geminiIcon} alt="Gemini" className="w-12 h-12 object-contain" />
-        <img src={claudeIcon} alt="Claude" className="w-12 h-12 object-contain" />
+        <img src={chatgptIcon} alt="ChatGPT" className="w-10 h-10 object-contain" />
+        <img src={geminiIcon} alt="Gemini" className="w-10 h-10 object-contain" />
+        <img src={claudeIcon} alt="Claude" className="w-10 h-10 object-contain" />
       </div>
     ),
     description: "I leverage LLM's like ChatGPT, Gemini, and Claude to boost productivity and build innovative solutions.",
@@ -68,9 +68,9 @@ const techTools: TechTool[] = [
     category: 'Enterprise Solutions',
     icon: (
       <div className="flex items-center justify-center gap-2">
-        <img src={graphApiIcon} alt="GraphAPI" className="w-12 h-12 object-contain" />
-        <img src={googleApiIcon} alt="GoogleAPI" className="w-12 h-12 object-contain" />
-        <img src={twilioApiIcon} alt="TwilioAPI" className="w-12 h-12 object-contain" />
+        <img src={graphApiIcon} alt="GraphAPI" className="w-10 h-10 object-contain" />
+        <img src={googleApiIcon} alt="GoogleAPI" className="w-10 h-10 object-contain" />
+        <img src={twilioApiIcon} alt="TwilioAPI" className="w-10 h-10 object-contain" />
       </div>
     ),
     description: "Integrate and work with various APIs to enhance functionality and streamline workflows.",
@@ -111,7 +111,7 @@ export const TechSlideshow: React.FC = () => {
   return (
     <div className="relative w-full max-w-2xl mx-auto">
       <div className="relative h-80 flex items-center justify-center">
-        <div className="text-center px-8">
+        <div className="text-center px-8 -mt-8 md:mt-0">
           <div 
             className={`inline-flex items-center justify-center mb-8 transition-all duration-500 transform ${
               isAnimating 
@@ -165,7 +165,7 @@ export const TechSlideshow: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center space-x-4 mt-8">    
+      <div className="flex items-center justify-center space-x-4 -mt-8 md:mt-8">    
         <div className="flex space-x-2">
           {techTools.map((_, index) => (
             <button
@@ -173,7 +173,7 @@ export const TechSlideshow: React.FC = () => {
               onClick={() => goToSlide(index)}
               className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                 index === currentSlide 
-                  ? 'bg-gray-800 scale-125' 
+                  ? 'bg-white scale-125' 
                   : 'bg-gray-400 hover:bg-gray-600'
               }`}
             />
