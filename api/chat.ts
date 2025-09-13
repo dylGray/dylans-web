@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               content: msg.content
             })),
             max_tokens: 1000,
-            temperature: 0.7,
+            temperature: 0.5,
           }),
         });
 
@@ -82,7 +82,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               contents: geminiContents,
               generationConfig: {
                 maxOutputTokens: 1000,
-                temperature: 0.7,
+                temperature: 0.5,
               },
             }),
           }

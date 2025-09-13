@@ -254,8 +254,8 @@ const llmChat: React.FC = () => {
             }
 
             #home-image img {
-              width: 32px !important;
-              height: 32px !important;
+              width: 36px !important;
+              height: 36px !important;
               flex-shrink: 0 !important;
             }
 
@@ -270,7 +270,7 @@ const llmChat: React.FC = () => {
         <ModelInfoModal />
 
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
-          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Chat with popular LLM's.</h2>
+          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Chat with popular LLM's</h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="flex items-center gap-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl p-2">

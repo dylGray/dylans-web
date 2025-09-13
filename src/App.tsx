@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import RainDrops from './components/Rain';
 import Experience from './components/Experience';
+import ChatRedirect from './components/ChatRedirect';
 import AI from './components/Chat';
 
 function AppContent() {
@@ -31,6 +32,7 @@ function AppContent() {
                 <About />
                 <Experience />
                 <Projects />
+                <ChatRedirect />
               </>
             }
           />
