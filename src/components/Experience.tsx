@@ -7,7 +7,7 @@ const experiences = [
     icon: Code,
     iconColor: "text-green-500",
     title: "Software Development",
-    description: "Hands on experience building web applications with modern technologies such as React, TypeScript, Next.js, and cloud platforms."
+    description: "Hands on experience building web applications with modern technologies, cloud platforms, and API providers."
   },
   {
     icon: Palette,
@@ -60,8 +60,8 @@ const ExperienceAndSlideshow: React.FC = () => {
                       )}
                       </div>
                   <div>
-                  <h4 className="text-lg font-semibold text-white mb-2">{exp.title}</h4>
-                  <p className="text-white/90 leading-relaxed text-xs md:text-md">{exp.description}</p>
+                  <h4 className="text-lg font-semibold text-white mb-1">{exp.title}</h4>
+                  <p className="text-white/90 leading-relaxed text-xs md:text-base">{exp.description}</p>
                 </div>
               </div>
             </div>
