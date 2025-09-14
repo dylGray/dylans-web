@@ -19,7 +19,7 @@ const experiences = [
     icon: Lightbulb,
     iconColor: "text-yellow-500",
     title: "Problem Solving",
-    description: "Passionate about tackling complex challenges and transforming them into elegant, scalable solutions through creative problem solving."
+    description: "Passionate about tackling complex challenges and transforming them into elegant, scalable solutions."
   },
   {
     icon: Users,

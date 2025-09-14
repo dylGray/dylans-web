@@ -1,5 +1,29 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+// basic rate limiting, need to configure a middleware.ts file eventually
+function checkRateLimit(ip: string): { allowed: boolean; resetTime?: number } {
+  const now = Date.now();
+  const windoMs = 60 * 1000;   // 1 minute window
+  const maxRequests = 10;       // max 10 requests per minute per IP
+
+  const userData = rateLimitMap.get(ip);
+
+  if (!userData || now > userData.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + windoMs });
+    return { allowed: true };
+  }
+
+  if (userData.count >= maxRequests) {
+    return { allowed: false, resetTime: userData.resetTime };
+  }
+
+  userData.count++;
+  rateLimitMap.set(ip, userData);
+  return { allowed: true };
+}
+
 const tavilySearchTool = {
   type: "function",
   function: {
@@ -58,6 +82,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+
+    const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
+            req.socket?.remoteAddress || 
+            'anonymous';
+
+    const rateLimitResult = checkRateLimit(ip);
+    
+    if (!rateLimitResult.allowed) {
+      const resetTime = new Date(rateLimitResult.resetTime!).toISOString();
+      const retryAfter = Math.ceil((rateLimitResult.resetTime! - Date.now()) / 1000);
+      
+      return res.status(429).json({
+        error: 'Too many requests',
+        message: `Rate limit exceeded. Try again after ${resetTime}`,
+        retryAfter: retryAfter
+      });
+    }
+
     const { provider, messages, webSearchEnabled } = req.body;
 
     if (!provider) {
