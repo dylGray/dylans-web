@@ -35,10 +35,10 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
                 <a
                   href=""
-                  className="glass-dark rounded-full px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
+                  className="px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
                   aria-label="Send email to Dylan"
                 >
                   <Mail className="w-5 h-5" />
@@ -47,7 +47,7 @@ const Footer = () => {
 
                 <a
                   href="tel:317-500-0233"
-                  className="glass-dark rounded-full px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
+                  className="px-6 py-3 text-white inline-flex items-center space-x-3 cursor-default"
                 >
                 <Smartphone className="w-5 h-5" />
                 <span>317-500-0233</span>
