@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, User, Loader2, RotateCcw, X, Info } from 'lucide-react';
+import { Send, User, Loader2, X, Info, Globe } from 'lucide-react';
 import navIcon from '../assets/images/nav-icon.jpg';
 import gptLogo from '../assets/images/gpt-logo.png';
 import geminiLogo from '../assets/images/gemini-icon.png';
@@ -9,15 +9,24 @@ interface Message {
   content: string;
 }
 
+interface TypingMessage {
+  messageIndex: number;
+  fullContent: string;
+  currentContent: string; 
+  isTyping: boolean;
+}
+
 const llmChat: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);  // tracking message history for each session
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState<'gpt-3.5-turbo' | 'gemini-1.5-flash'>('gpt-3.5-turbo');
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [isStreaming, setIsStreaming] = useState(false);
   const [isModelInfoOpen, setIsModelInfoOpen] = useState(false);
+  const [typingMessage, setTypingMessage] = useState<TypingMessage | null>(null);
+  const typingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [webSearchEnabled, setWebSearchEnabled] = useState(false);
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -28,10 +37,14 @@ const llmChat: React.FC = () => {
     }
   };
 
-  const handleRestartChat = () => {
-    setMessages([]);
-    setInput('');
-  };
+  // const handleRestartChat = () => {
+  //   setMessages([]);
+  //   setInput('');
+  //   setTypingMessage(null);
+  //   if (typingIntervalRef.current) {
+  //     clearInterval(typingIntervalRef.current);
+  //   }
+  // };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -43,23 +56,75 @@ const llmChat: React.FC = () => {
     return () => document.removeEventListener('keydown', onKey);
   }, [isModelInfoOpen]);
 
-  // scroll to bottom when message array is updated, regardless of streaming
   useEffect(() => {
-    if (isStreaming || !isStreaming) {
-      scrollToBottom();
+    if (typingMessage && typingMessage.isTyping) {
+      const typeSpeed = 20; 
+      
+      typingIntervalRef.current = setInterval(() => {
+        setTypingMessage(prev => {
+          if (!prev) return null;
+          
+          const nextLength = prev.currentContent.length + 1;
+          
+          if (nextLength >= prev.fullContent.length) {
+            setMessages(prevMessages => {
+              const updatedMessages = [...prevMessages];
+              updatedMessages[prev.messageIndex] = {
+                role: 'assistant',
+                content: prev.fullContent
+              };
+              return updatedMessages;
+            });
+            
+            if (typingIntervalRef.current) {
+              clearInterval(typingIntervalRef.current);
+            }
+            
+            return { ...prev, isTyping: false, currentContent: prev.fullContent };
+          }
+          
+          return {
+            ...prev,
+            currentContent: prev.fullContent.substring(0, nextLength)
+          };
+        });
+      }, typeSpeed);
     }
-  }, [messages]);
+
+    return () => {
+      if (typingIntervalRef.current) {
+        clearInterval(typingIntervalRef.current);
+      }
+    };
+  }, [typingMessage?.isTyping]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, typingMessage?.currentContent]);
+
+  const startTypingEffect = (content: string, messageIndex: number) => {
+    setTypingMessage({
+      messageIndex,
+      fullContent: content,
+      currentContent: '',
+      isTyping: true
+    });
+  };
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
+
+    if (typingIntervalRef.current) {
+      clearInterval(typingIntervalRef.current);
+    }
+    setTypingMessage(null);
 
     // adding new user message to the chat history, and updating state
     const userMessage: Message = { role: 'user', content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setLoading(true);
-    setIsStreaming(false);
 
     let provider: 'openai' | 'gemini' = selectedModel === 'gpt-3.5-turbo' ? 'openai' : 'gemini';
     let model = selectedModel;
@@ -72,21 +137,30 @@ const llmChat: React.FC = () => {
           provider,
           model,
           messages: [...messages, userMessage],
+          webSearchEnabled,
         }),
       });
 
       const data = await response.json();
+
       let assistantContent = '';
 
       if (provider === 'openai') {
-        assistantContent = data.choices?.[0]?.message?.content || 'No response.';
+          assistantContent = data.choices?.[0]?.message?.content || 'No response from OpenAI.';
+      
       } else if (provider === 'gemini') {
-        assistantContent = data.candidates?.[0]?.content?.parts?.[0]?.text
-          || data.candidates?.[0]?.content?.text
-          || 'No response.';
+          assistantContent = data.candidates?.[0]?.content?.parts?.[0]?.text
+            || data.candidates?.[0]?.content?.text
+            || 'No response from Gemini.';
+    
+      } else {
+        assistantContent = 'Unknown provider response.';
       }
 
-      setMessages((prev) => [...prev, { role: 'assistant', content: assistantContent }]);
+      setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
+      const messageIndex = messages.length + 1; // +1 because we just added user message
+      startTypingEffect(assistantContent, messageIndex);
+
     } catch (err) {
       setMessages((prev) => [...prev, { role: 'assistant', content: 'Error: Unable to fetch response.' }]);
     } finally {
@@ -103,21 +177,19 @@ const llmChat: React.FC = () => {
         features: [
           'Conversational AI with natural language understanding',
           'Context window of 4,096 tokens',
-          'Optimized for speed and cost-effectiveness',
-          'Supports multiple languages',
           'Fine-tuned for instruction following'
         ],
         strengths: [
           'Quick response times',
           'Cost-effective for high-volume usage',
           'Reliable performance across various tasks',
-          'Good balance of capability and efficiency'
         ],
         useCases: [
           'Customer support chatbots',
           'Content generation',
           'Code assistance',
-          'General Q&A applications'
+          'General Q&A applications',
+          'General automation'
         ]
       };
     } else {
@@ -126,15 +198,12 @@ const llmChat: React.FC = () => {
         provider: 'Google',
         description: 'Google\'s fast and versatile AI model designed for diverse tasks.',
         features: [
-          'Multimodal capabilities',
           'Large context window up to 1 million tokens',
           'Fast inference speed',
           'Advanced reasoning capabilities',
-          'Code generation and analysis'
         ],
         strengths: [
           'Exceptional context understanding',
-          'Multimodal processing',
           'Strong performance on complex reasoning',
           'Excellent for long-form content'
         ],
@@ -142,7 +211,8 @@ const llmChat: React.FC = () => {
           'Document analysis and summarization',
           'Creative writing and content creation',
           'Complex problem solving',
-          'Research assistance'
+          'Research assistance',
+          'General automation'
         ]
       };
     }
@@ -150,7 +220,7 @@ const llmChat: React.FC = () => {
 
   const modelInfo = getModelInfo();
 
-  const ModelInfoModal = () => {
+  const ModelInfo = () => {
     if (!isModelInfoOpen) return null;
     const logo = selectedModel === 'gpt-3.5-turbo' ? gptLogo : geminiLogo;
     return (
@@ -234,6 +304,14 @@ const llmChat: React.FC = () => {
     );
   };
 
+  // helper function to get message content (handles typing effect)
+  const getMessageContent = (msg: Message, idx: number) => {
+    if (typingMessage && typingMessage.messageIndex === idx && msg.role === 'assistant') {
+      return typingMessage.currentContent + (typingMessage.isTyping ? '|' : '');
+    }
+    return msg.content;
+  };
+
   // initial state
   if (messages.length === 0) {
     return (
@@ -261,13 +339,34 @@ const llmChat: React.FC = () => {
               display: none !important;
               }
             }
+
+            .typing-cursor {
+              animation: blink 1s infinite;
+            }
+
+            @keyframes blink {
+              0%, 50% { opacity: 1; }
+              51%, 100% { opacity: 0; }
+            }
             `}
         </style>
 
-        <ModelInfoModal />
+        <ModelInfo />
 
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
-          <h2 className="text-xl md:text-3xl mb-8 text-center px-1">Chat with popular LLM's</h2>
+            {selectedModel === 'gpt-3.5-turbo' && (
+            <div className="hidden md:flex items-center gap-2 text-xs text-white-800 bg-blue-900/30 rounded-lg px-3 py-2 md:-mt-36">
+              <Globe className="w-4 h-4" />
+              <span>
+              <strong>New:</strong> Enable the <span className="font-semibold">Web Search</span> tool (globe icon) to get real-time data and up-to-date information directly in your chat. Available only with GPT-3.5 Turbo.
+              </span>
+            </div>
+            )}
+            <h2
+            className={`text-xl md:text-3xl mb-8 text-center px-1${selectedModel === 'gpt-3.5-turbo' ? ' md:pt-28' : ''}`}
+            >
+            Chat with popular LLM's
+            </h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="flex items-center gap-3 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl p-2">
@@ -345,19 +444,32 @@ const llmChat: React.FC = () => {
                       }
                     }}
                   />
+
+                  {selectedModel === 'gpt-3.5-turbo' && (
+                    <button
+                      type="button"
+                      className={`p-2 bg-transparent border-none shadow-none flex items-center justify-center transition-colors duration-200 ${
+                        webSearchEnabled ? 'text-blue-400 hover:text-blue-300' : 'text-gray-400 hover:text-white'
+                      } ${loading && webSearchEnabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      title={webSearchEnabled ? "Disable Web Search" : "Enable Web Search"}
+                      aria-label={webSearchEnabled ? "Disable Web Search" : "Enable Web Search"}
+                      onClick={() => setWebSearchEnabled(!webSearchEnabled)}
+                      disabled={loading && webSearchEnabled}
+                      tabIndex={-1}
+                    >
+                      <Globe className="w-5 h-5" />
+                    </button>
+                  )}
+
                   <button
                     type="submit"
                     className="mr-3 p-0 bg-transparent border-none shadow-none flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={loading || !input.trim()}
                     style={{ background: 'none' }}
                   >
-                    {loading ? (
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                    ) : (
-                      <Send
-                        className={`w-5 h-5 transition-colors duration-200 mr-2 ${input.trim() ? 'text-white' : 'text-gray-400'}`}
-                      />
-                    )}
+                  <Send
+                    className={`w-5 h-5 transition-colors duration-200 mr-2 ${input.trim() ? 'text-white' : 'text-gray-400'}`}
+                  />
                   </button>
                 </div>
               </div>
@@ -368,7 +480,7 @@ const llmChat: React.FC = () => {
     );
   }
 
-  // chat mode
+  // chatting state
   return (
     <>
       <style>
@@ -393,6 +505,15 @@ const llmChat: React.FC = () => {
             button[title*="Rain"] {
               display: none !important;
             }
+          }
+
+          .typing-cursor {
+            animation: blink 1s infinite;
+          }
+
+          @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
           }
         `}
       </style>
@@ -421,7 +542,7 @@ const llmChat: React.FC = () => {
                 </div>
                 <div className={`max-w-[75%] backdrop-blur-xl border border-blue-200/30 rounded-2xl px-6 py-4 shadow-lg`}>
                   <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
-                    {msg.content}
+                    {getMessageContent(msg, idx)}
                   </div>
                 </div>
               </div>
@@ -431,7 +552,11 @@ const llmChat: React.FC = () => {
                 <div className="">
                   <div className="flex items-center gap-3 text-gray-600">
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Thinking...</span>
+                    {webSearchEnabled ? (
+                      <span>Searching the web...</span>
+                    ) : (
+                      <span>Thinking...</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -440,6 +565,7 @@ const llmChat: React.FC = () => {
           </div>
         </div>
         <div className="sticky bottom-0">
+          {/* Web Search Toggle */}
           <form onSubmit={handleSend} className="relative">
             <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
               <div className="absolute inset-0"></div>
@@ -466,16 +592,21 @@ const llmChat: React.FC = () => {
                     }
                   }}
                 />
-                <button
-                  type="button"
-                  className="p-2 bg-transparent border-none shadow-none flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-200"
-                  title="Restart chat"
-                  aria-label="Restart chat"
-                  onClick={handleRestartChat}
-                  tabIndex={-1}
-                >
-                  <RotateCcw className="w-5 h-5" />
-                </button>
+                {selectedModel === 'gpt-3.5-turbo' && (
+                  <button
+                    type="button"
+                    className={`p-2 bg-transparent border-none shadow-none flex items-center justify-center transition-colors duration-200 ${
+                      webSearchEnabled ? 'text-blue-400 hover:text-blue-300' : 'text-gray-400 hover:text-white'
+                    } ${loading && webSearchEnabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    title={webSearchEnabled ? "Disable Web Search" : "Enable Web Search"}
+                    aria-label={webSearchEnabled ? "Disable Web Search" : "Enable Web Search"}
+                    onClick={() => setWebSearchEnabled(!webSearchEnabled)}
+                    disabled={loading && webSearchEnabled}
+                    tabIndex={-1}
+                  >
+                    <Globe className="w-5 h-5" />
+                  </button>
+                )}
 
                 <button
                   type="submit"
@@ -484,13 +615,9 @@ const llmChat: React.FC = () => {
                   style={{ background: 'none' }}
                   aria-label="Send"
                 >
-                  {loading ? (
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                  ) : (
-                    <Send
-                      className={`w-5 h-5 transition-colors duration-200 ${input.trim() ? 'text-white' : 'text-gray-400'}`}
-                    />
-                  )}
+                <Send
+                  className={`w-5 h-5 transition-colors duration-200 ${input.trim() ? 'text-white' : 'text-gray-400'}`}
+                />
                 </button>
               </div>
             </div>
