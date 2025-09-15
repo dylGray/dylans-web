@@ -9,7 +9,7 @@ const ChatShowcase: React.FC = () => {
         <div className="mx-auto max-w-5xl rounded-3xl mt-2 md:mt-0 p-4 md:p-8 md:p-12">
           <div className="space-y-6">
             <h2 className="text-2xl md:text-4xl font-bold text-white -mb-4 md:-mb-3 flex items-center justify-center gap-2">
-              Under Construction <WrenchIcon className="w-8 h-8 text-white/70" />
+              Under construction <WrenchIcon className="w-8 h-8 text-white/70" />
             </h2>
 
             <p className="text-sm sm:text-xl text-white/90 max-w-4xl mx-auto sm:leading-[1.5] mb-2">

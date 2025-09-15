@@ -71,7 +71,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-4xl lg:text-4xl font-bold text-white mb-2 leading-tight">
-            Previous and On-Going Development
+            Stuff I've been building
           </h2>
           <p className="text-sm sm:text-xl text-white/90 max-w-3xl mx-auto sm:leading-relaxed mb-2">
             Here are some of the projects I've lead, colloborated on, and have built myself.
