@@ -18,7 +18,6 @@ const About = () => {
                 </p>
               </div>
           </div>
-          {/* Large image outside the container, only on desktop */}
           <div className="-mb-20 hidden lg:flex flex-col items-center relative">
             <img
               src={doodsImg}

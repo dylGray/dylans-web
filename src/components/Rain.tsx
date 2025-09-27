@@ -24,9 +24,9 @@ const RainDrops: React.FC<RainDropProps> = ({ numberOfDrops }) => {
   }, []);
 
   // DEBUGGING
-  useEffect(() => {
-    console.log(`[RainDrops] Rendering with dropCount: ${numberOfDrops ?? dropCount}`);
-  }, [numberOfDrops, dropCount]);
+  // useEffect(() => {
+  //   console.log(`[RainDrops] Rendering with dropCount: ${numberOfDrops ?? dropCount}`);
+  // }, [numberOfDrops, dropCount]);
 
   const rain = useMemo(() => {
     const newRain = [];

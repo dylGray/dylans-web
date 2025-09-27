@@ -355,17 +355,15 @@ const llmChat: React.FC = () => {
 
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
             {selectedModel === 'gpt-3.5-turbo' && (
-            <div className="hidden md:flex items-center gap-2 text-xs text-white-800 bg-blue-900/30 rounded-lg px-3 py-2 md:-mt-36">
-              <Globe className="w-4 h-4" />
-              <span>
-              <strong>New:</strong> Enable the <span className="font-semibold">Web Search</span> tool (globe icon) to get real-time data and up-to-date information directly in your chat. Available only with GPT-3.5 Turbo.
-              </span>
-            </div>
+              <div className="hidden md:flex items-center gap-2 text-xs text-white-800 bg-blue-900/30 rounded-lg px-3 py-2 md:-mt-36">
+                <Globe className="w-4 h-4" />
+                <span>
+                  <strong>New:</strong> Enable the <span className="font-semibold">Web Search</span> tool (globe icon) to get real-time data and up-to-date information directly in your chat. Available only with GPT-3.5 Turbo.
+                </span>
+              </div>
             )}
-            <h2
-            className={`text-xl md:text-3xl mb-8 text-center px-1${selectedModel === 'gpt-3.5-turbo' ? ' md:pt-28' : ''}`}
-            >
-            Chat with popular LLM's
+            <h2 className={`text-xl md:text-3xl mb-8 text-center px-1${selectedModel === 'gpt-3.5-turbo' ? ' md:pt-28' : ''}`}>
+              Chat with popular LLM's
             </h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -395,14 +393,14 @@ const llmChat: React.FC = () => {
             <div className="flex flex-col items-center justify-center gap-2 text-sm text-gray-400 mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xs md:text-sm">Currently using: {selectedModel}</span>
-                <span className="flex items-center gap-1">
-                  {selectedModel === 'gpt-3.5-turbo' && (
-                    <img src={gptLogo} alt="GPT-3.5 Turbo" className="w-6 h-6" />
-                  )}
-                  {selectedModel === 'gemini-1.5-flash' && (
-                    <img src={geminiLogo} alt="Gemini-1.5 Flash" className="w-6 h-6" />
-                  )}
-                </span>
+                  <span className="flex items-center gap-1">
+                    {selectedModel === 'gpt-3.5-turbo' && (
+                      <img src={gptLogo} alt="GPT-3.5 Turbo" className="w-6 h-6" />
+                    )}
+                    {selectedModel === 'gemini-1.5-flash' && (
+                      <img src={geminiLogo} alt="Gemini-1.5 Flash" className="w-6 h-6" />
+                    )}
+                  </span>
               </div>
 
               <button

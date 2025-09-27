@@ -1,10 +1,11 @@
 import React from 'react';
 import ChatInterface from '../assets/images/chat-interface.png';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { WrenchIcon } from 'lucide-react';
 
 const ChatShowcase: React.FC = () => {
   return (
+    <section id="chat">
       <div className="mx-auto text-center max-w-5xl pt-8 pb-12">
         <div className="mx-auto max-w-5xl rounded-3xl mt-2 md:mt-0 p-4 md:p-8 md:p-12">
           <div className="space-y-6">
@@ -13,7 +14,7 @@ const ChatShowcase: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-xl text-white/90 max-w-4xl mx-auto sm:leading-[1.5] mb-2">
-              Toggle between frontier Large Language Models (LLM's) within this app! Actively adding tools and features to enhance your experience.
+              Toggle between frontier Large Language Models (LLM's). Actively adding tools and features to enhance your experience.
             </p>
           </div>
 
@@ -27,18 +28,18 @@ const ChatShowcase: React.FC = () => {
             </div>
           </div>
 
-          <div>
-            <Link
-              to="/chat"
-              className="glass-medium rounded-full px-6 py-3 text-white font-medium transition-all duration-200 inline-flex items-center space-x-2"
-            >
-              Start Chatting
+        {/* <div>
+          <Link
+            to="/chat"
+            className="glass-medium rounded-full px-6 py-3 text-white font-medium transition-all duration-200 inline-flex items-center space-x-2"
+          >
+            Start Chatting
 
-            </Link>
-          </div>
+          </Link>
+        </div> */}
         </div>
       </div>
-    
+    </section>
   );
 };
 

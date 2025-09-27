@@ -8,6 +8,17 @@ interface AnimatedCloudProps {
   className?: string;
 }
 
+interface RainToggleProps {
+  isRainOn: boolean;
+  onToggle: () => void;
+  className?: string;
+}
+
+interface HeaderProps {
+  showRain: boolean;
+  setShowRain: () => void;
+}
+
 const AnimatedCloud: React.FC<AnimatedCloudProps> = ({ showRain, className = '' }) => {
   return (
     <div className={`relative inline-block ${className}`}>
@@ -38,12 +49,6 @@ const AnimatedCloud: React.FC<AnimatedCloudProps> = ({ showRain, className = '' 
   );
 };
 
-interface RainToggleProps {
-  isRainOn: boolean;
-  onToggle: () => void;
-  className?: string;
-}
-
 const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
@@ -58,11 +63,6 @@ const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, class
     <span className="font-medium text-xs">{isRainOn ? 'Stop Rain' : 'Start Rain'}</span>
   </button>
 );
-
-interface HeaderProps {
-  showRain: boolean;
-  setShowRain: () => void;
-}
 
 const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -113,17 +113,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
               <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
               <img src={navIcon} alt="Home" className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover flex-shrink-0" />
               </Link>
-              {['About', 'Projects', 'Contact', "Chat"].map((item) => (
-                item === "Chat" ? (
-                  <Link
-                    id="nav-links"
-                    key={item}
-                    to="/chat"
-                    className="text-white hover:underline transition-colors duration-200 font-medium"
-                  >
-                    {item}
-                  </Link>
-                ) : (
+              {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
                   <button
                     id="nav-links"
                     key={item}
@@ -133,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                     {item}
                   </button>
                 )
-              ))}
+              )}
             </div>
 
             <div className="hidden md:block">
@@ -164,17 +154,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 >
                   <img src={navIcon} alt="Home" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
                 </Link>
-                {['About', 'Projects', 'Contact', "Chat"].map((item) => (
-                  item === "Chat" ? (
-                    <Link
-                      key={item}
-                      to="/chat"
-                      className="text-white hover:text-blue-200 transition-colors duration-200 font-medium text-left"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : (
+                {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
                     <button
                       key={item}
                       onClick={() => {
@@ -186,7 +166,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                       {item}
                     </button>
                   )
-                ))}
+                )}
               </div>
             </div>
           )}
