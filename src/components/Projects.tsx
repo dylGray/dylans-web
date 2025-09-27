@@ -47,7 +47,7 @@ const Projects = () => {
       image: teamLinkImg,
       technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API's"],
       icon: <Globe className="w-6 h-6" />,
-      live: "https://cgi.luddy.indiana.edu/~team23/app/pages/home.php"
+      live: "https://zion.luddy.indiana.edu/info-capstone-2025/teamlink"
     },
     {
       title: "Elevator Pitch Challenge",
