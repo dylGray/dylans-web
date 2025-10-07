@@ -52,11 +52,7 @@ const AnimatedCloud: React.FC<AnimatedCloudProps> = ({ showRain, className = '' 
 const RainToggleButton: React.FC<RainToggleProps> = ({ isRainOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
-    className={`flex items-center space-x-2 px-2 py-2.5 rounded-lg transition-all duration-200 relative overflow-hidden ${
-      isRainOn 
-        ? 'bg-blue-500/80 text-white hover:bg-blue-400/80' 
-        : 'bg-white/10 text-white hover:bg-white/20'
-    } backdrop-blur-sm border border-white/20 hover:border-white/40 ${className}`}
+    className={`flex items-center space-x-2 px-2 py-2.5 rounded-lg transition-all duration-200 relative overflow-hidden glass text-white hover:glass-dark backdrop-blur-sm border border-white/20 hover:border-white/40 ${className}`}
     title={isRainOn ? 'Stop Rain' : 'Start Rain'}
   >
     <AnimatedCloud showRain={isRainOn} />
@@ -113,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
               <Link  to="/" className="flex items-center group mr-2" aria-label="Home">
               <img src={navIcon} alt="Home" className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover flex-shrink-0" />
               </Link>
-              {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
+              {['About', 'Projects', 'Contact'].map((item) => (
                   <button
                     id="nav-links"
                     key={item}
@@ -154,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
                 >
                   <img src={navIcon} alt="Home" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
                 </Link>
-                {['About', 'Projects', 'Contact', 'Chat'].map((item) => (
+                {['About', 'Projects', 'Contact'].map((item) => (
                     <button
                       key={item}
                       onClick={() => {

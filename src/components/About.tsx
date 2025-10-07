@@ -1,5 +1,3 @@
-import doodsImg from '../doods.png';
-
 const About = () => {
   return (
     <section id="about" className="md:pt-32 md:pb-20 p-16 px-4">
@@ -18,7 +16,7 @@ const About = () => {
                 </p>
               </div>
           </div>
-          <div className="-mb-20 hidden lg:flex flex-col items-center relative">
+          {/* <div className="-mb-20 hidden lg:flex flex-col items-center relative">
             <img
               src={doodsImg}
               alt="Dylan and Doods"
@@ -26,7 +24,7 @@ const About = () => {
               style={{ objectPosition: 'center' }}
             />
             <span className="text-sm text-white/80 italic drop-shadow-lg">I'm the cool looking guy on the far left</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

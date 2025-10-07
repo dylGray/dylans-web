@@ -1,8 +1,9 @@
-import { ExternalLink, Github, Globe, BarChart3, Bot, Gamepad } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import teamLinkImg from '../assets/images/team-link.jpeg';
 import tpsLogoImg from '../assets/images/tps-logo1.png';
 import naviStructureImg from '../assets/images/navi-structure1.png';
 import mineseeper from '../assets/images/minesweeper.jpg';
+import chatInterface from '../assets/images/chat-interface.png';
 
 declare module '*.jpeg';
 declare module '*.png';
@@ -14,7 +15,6 @@ const Projects = () => {
       description: "A reimagined version of the classic Minesweeper game. This was a college project that focused on object-oriented design and GUI development.",
       image: mineseeper,
       technologies: ["Java", "JavaFX", "OOP", "GUI Development", "Unit Testing", "Version Control"],
-      icon: <Gamepad className="w-6 h-6" />,
       live: (
         <a
           href="https://cdnapisec.kaltura.com/p/1751071/embedPlaykitJs/uiconf_id/55382703?iframeembed=true&amp;entry_id=1_srbpvwcv&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_itf7o5gg%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D"
@@ -46,7 +46,6 @@ const Projects = () => {
       ),
       image: teamLinkImg,
       technologies: ["JavaScript", "TailwindCSS", "PHP", "MariaDB", "OAuth2.0", "Twilio API's"],
-      icon: <Globe className="w-6 h-6" />,
       live: "https://zion.luddy.indiana.edu/info-capstone-2025/teamlink"
     },
     {
@@ -54,7 +53,6 @@ const Projects = () => {
       description: "An in-house tool developed for RPG to highlight where salespeople are struggling in their elevator pitches; leveraging AI analysis to provide actionable insights.",
       image: tpsLogoImg,
       technologies: ["Python", "JavaScript", "TailwindCSS", "Vercel", "Cloud Firestore", "OpenAI API"],
-      icon: <BarChart3 className="w-6 h-6" />,
       live: "https://priority-pitch.vercel.app/login"
     },
     {
@@ -62,12 +60,17 @@ const Projects = () => {
       description: "A B2B sales tool designed to help sales teams improve their performance through AI-driven insights and proprietary data.",
       image: naviStructureImg,
       technologies: ["TypeScript", "React", "TailwindCSS", "PostgreSQL", "Azure", "Azure AI Foundry"],
-      icon: <Bot className="w-6 h-6" />,
+    },
+    {
+      title: "Playing with LLMs",
+      description: "Pet project where you can toggle between OpenAI and Google Large Language Models (LLMs). Actively integrating custom tools.",
+      image: chatInterface,
+      technologies: ["OpenAI API", "Google Gemini API", "Tool Calling", "Model Switching", "Tavily Search"],
     }
   ];
 
   return (
-    <section style={{ padding: '125px 20px 100px 20px' }} id="projects" className="px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: '125px 20px 225px 20px' }} id="projects" className="px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-4xl lg:text-4xl font-bold text-white mb-2 leading-tight">
@@ -79,7 +82,7 @@ const Projects = () => {
           <span className="inline-block w-16 h-1 mt-4 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div className="relative overflow-hidden">
@@ -90,9 +93,6 @@ const Projects = () => {
                   style={{ height: '225px' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute top-4 left-4 glass-dark rounded-lg p-2 text-blue-300">
-                  {project.icon}
-                </div>
               </div>
 
               <div className="p-6">

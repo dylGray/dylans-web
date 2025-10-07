@@ -363,7 +363,7 @@ const llmChat: React.FC = () => {
               </div>
             )}
             <h2 className={`text-xl md:text-3xl mb-8 text-center px-1${selectedModel === 'gpt-3.5-turbo' ? ' md:pt-28' : ''}`}>
-              Chat with popular LLM's
+              Chat with frontier Large Language Models
             </h2>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-4 mb-6">

@@ -10,6 +10,8 @@ import geminiIcon from '../assets/images/gemini-icon.png';
 import graphApiIcon from '../assets/images/graphapi-icon.png';
 import googleApiIcon from '../assets/images/googleapi-icon.png';
 import twilioApiIcon from '../assets/images/twilio-logo.png';
+import azureDevOps from '../assets/images/ado.webp';
+
 
 interface TechTool {
   id: number;
@@ -42,10 +44,11 @@ const techTools: TechTool[] = [
     icon: (
       <div className="flex items-center justify-center gap-2">
         <img src={gitIcon} alt="Git" className="w-10 h-10 object-contain" />
+        <img src={azureDevOps} alt="Azure DevOps" className="w-10 h-10 object-contain" />
         <img src={githubIcon} alt="GitHub" className="w-10 h-10 object-contain" />
       </div>
     ),
-    description: "Heavily rely on Git and GitHub for version control and collaboration on projects.",
+    description: "Heavily rely on Git, Azure DevOps, and GitHub for version control and collaboration on projects.",
     color: 'text-orange-600'
   },
   {
@@ -59,7 +62,7 @@ const techTools: TechTool[] = [
         <img src={claudeIcon} alt="Claude" className="w-10 h-10 object-contain" />
       </div>
     ),
-    description: "I leverage LLM's like ChatGPT, Gemini, and Claude to boost productivity and build innovative solutions.",
+    description: "I leverage LLMs like ChatGPT, Gemini, and Claude to boost productivity and build innovative solutions.",
     color: 'text-purple-600'
   },
 {

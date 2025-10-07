@@ -19,11 +19,9 @@ const Footer = () => {
 
   return (
     <>
-    <div id="background-darken" className="mt-28"></div>
-      <div id="background-overlay"></div>
-        <footer id="contact" className="w-full bottom-0 left-0 z-50 bg-transparent">
+        <footer id="contact" className="glass w-full bottom-0 left-0 z-50 bg-transparent">
           <div className="mx-auto">
-            <div className="glass-dark rounded-2xl p-8 sm:p-12">
+            <div className="rounded-2xl p-8 sm:p-12">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
                   Let's Connect

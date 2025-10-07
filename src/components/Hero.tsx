@@ -34,7 +34,7 @@ const Hero = () => {
               href="https://github.com/dylGray"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-dark rounded-full p-3 group"
+              className="glass-medium rounded-full p-3 group"
             >
               <Github className="w-6 h-6 text-white transition-transform duration-200 group-hover:-rotate-12" />
             </a>
@@ -42,13 +42,13 @@ const Hero = () => {
               href="https://www.linkedin.com/in/dylan-gray-255107217/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-dark rounded-full p-3 group"
+              className="glass-medium rounded-full p-3 group"
             >
               <Linkedin className="w-6 h-6 text-white transition-transform duration-200 group-hover:rotate-12" />
             </a>
             <button
               type="button"
-              className="glass-dark rounded-full p-3 group"
+              className="glass-medium rounded-full p-3 group"
               onClick={() => {
                 const footer = document.getElementById('contact');
                 if (footer) {

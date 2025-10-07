@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
+// import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import RainDrops from './components/Rain';
 import Experience from './components/Experience';
-import ChatShowcase from './components/ChatShowcase';
 import AI from './components/Chat';
 
 function AppContent() {
@@ -29,10 +28,8 @@ function AppContent() {
             element={
               <>
                 <Hero />
-                <About />
                 <Experience />
                 <Projects />
-                <ChatShowcase />
               </>
             }
           />

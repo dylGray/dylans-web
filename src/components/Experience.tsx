@@ -31,13 +31,13 @@ const experiences = [
 
 const ExperienceAndSlideshow: React.FC = () => {
   return (
-    <section className="w-full px-2 sm:px-4 lg:px-8 py-12">
+    <section id="about" className="w-full px-2 sm:px-4 lg:px-8 py-12">
         <div className="max-w-7xl mx-auto px-2">
-            <h2 className="text-2xl sm:text-4xl mb-2 font-bold text-white gap-3 px-1 text-center md:text-left">
-                My core skills, and what I love<span className="hidden md:inline-block ml-3 mb-1.5 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
+            <h2 className="text-xl sm:text-4xl mb-2 font-bold text-white gap-3 px-1 text-center md:text-left">
+                What I love, and what I can do<span className="hidden md:inline-block ml-3 mb-1.5 w-8 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />
             </h2>
-            <p className="text-white/90 w-full text-sm md:text-xl mb-2 px-1 text-center md:text-left">
-                Throughout my time in college and in the workforce, I've gained experience in these areas and tools:
+            <p className="text-white/90 w-full text-sm md:text-xl my-3 px-1 text-center md:text-left">
+                Throughout my time in college and in the workforce, I've gained passion and experience in these areas and tools:
             </p>
             <div className="mx-auto text-center">
                 <span className="inline-block md:hidden mx-auto mt-2 w-16 h-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-blue-400 rounded-full" />

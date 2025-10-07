@@ -11,16 +11,13 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  /* Dark rainy sky gradient */
-  background-color: #0a0f1a;
-  background-image: linear-gradient(180deg, #1f2933 0%, #0e1420 100%);
+  background-color: #00040a;
   color: #e0e7ff;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 .glass {
-  /* Darker misty glass */
   background: rgba(20, 30, 40, 0.4);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
