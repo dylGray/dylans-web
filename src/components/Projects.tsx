@@ -73,7 +73,7 @@ const Projects = () => {
     <section style={{ padding: '125px 20px 225px 20px' }} id="projects" className="px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-4xl lg:text-4xl font-bold text-white mb-2 leading-tight">
+          <h2 className="text-xl sm:text-4xl lg:text-4xl font-bold text-white mb-2 leading-tight">
             Stuff I've been building
           </h2>
           <p className="text-sm sm:text-xl text-white/90 max-w-3xl mx-auto sm:leading-relaxed mb-2">
@@ -96,8 +96,8 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-white/80 mb-4 leading-relaxed text-sm">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-white/80 mb-4 leading-relaxed text-xs md:text-sm">
                   {project.description}
                 </p>
 

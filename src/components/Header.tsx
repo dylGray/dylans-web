@@ -102,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ showRain, setShowRain }) => {
       `}
       </style>
 
-      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 md:glass md:border-b md:border-white/10 md:backdrop-blur-md">
         <nav className="container mx-auto px-2 md:px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div id="home-image" className="hidden md:flex items-center space-x-8">

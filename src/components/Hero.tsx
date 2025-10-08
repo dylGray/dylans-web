@@ -18,7 +18,7 @@ const Hero = () => {
           </h1>
           <img
             src={butters}
-            alt="Dylan and Mags"
+            alt="Butters"
             className="mx-auto mb-6 w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-white/20 shadow-lg"
           />
           <p className="text-lg sm:text-xl lg:text-2xl text-white mb-4 leading-relaxed">

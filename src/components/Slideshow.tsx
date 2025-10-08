@@ -12,7 +12,6 @@ import googleApiIcon from '../assets/images/googleapi-icon.png';
 import twilioApiIcon from '../assets/images/twilio-logo.png';
 import azureDevOps from '../assets/images/ado.webp';
 
-
 interface TechTool {
   id: number;
   name: string;
@@ -25,7 +24,7 @@ interface TechTool {
 const techTools: TechTool[] = [
   {
     id: 1,
-    name: 'Programming Languages',
+    name: 'UI/UX Development',
     category: 'UI/UX Development',
     icon: (
       <div className="flex items-center justify-center gap-2">
@@ -67,7 +66,7 @@ const techTools: TechTool[] = [
   },
 {
     id: 4,
-    name: 'API Integration',
+    name: 'Enterprise Solutions',
     category: 'Enterprise Solutions',
     icon: (
       <div className="flex items-center justify-center gap-2">
@@ -135,12 +134,12 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '100ms' }}
           >
-            <h2 className="text-xl font-bold mb-1 text-white">
+            <h2 className="text-xl font-bold mb-2 md:mb-4 text-white">
               {currentTool.name}
             </h2>
           </div>
           
-          <div 
+          {/* <div 
             className={`transition-all duration-500 transform ${
               isAnimating 
                 ? 'opacity-0 translate-y-4' 
@@ -148,10 +147,10 @@ export const TechSlideshow: React.FC = () => {
             }`}
             style={{ transitionDelay: isAnimating ? '0ms' : '200ms' }}
           >
-            <p className="text-md md:text-lg font-medium mb-4 text-white/90">
+            <p className="hidden md:block text-md font-medium mb-4 text-white/90">
               {currentTool.category}
             </p>
-          </div>
+          </div> */}
           
           <div 
             className={`transition-all duration-500 transform ${
