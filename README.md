@@ -4,11 +4,11 @@ A modern, personal portfolio website built with React, TypeScript, Vite, and Tai
 
 ## Features
 
-- ⚡️ Fast development and production builds with Vite
-- 🎨 UI built with Tailwind CSS
-- 💻 Fully responsive and mobile-friendly
-- 🧩 Modular React components
-- 🤖 Toggle-able LLM's to chat with
+- Fast development and production builds with Vite
+- UI built with Tailwind CSS
+- Fully responsive and mobile-friendly
+- Modular React components
+- Toggle-able LLM's to chat with
 
 ## Running locally
 Two options
