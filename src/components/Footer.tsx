@@ -19,12 +19,12 @@ const Footer = () => {
 
   return (
     <>
-        <footer id="contact" className="glass w-full bottom-0 left-0 z-50 bg-transparent">
+        <footer id="contact" className="w-full bottom-0 left-0 z-50 bg-transparent">
           <div className="mx-auto">
             <div className="rounded-2xl p-8 sm:p-12">
               <div className="text-center mb-12">
                 <h2 className="text-xl md:text-3xl sm:text-4xl font-bold text-white mb-6">
-                  How can you get in touch?
+                  How can we get in touch?
                 </h2>
                 <p className="text-sm md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
                   I'm always interested in new opportunities and collaborations!
