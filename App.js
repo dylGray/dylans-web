@@ -104,31 +104,31 @@ export default function App() {
           <div class="lg:order-2">
             <div class="grid grid-cols-3 gap-x-0.5 gap-y-20 justify-items-center mt-10 md:mt-20">
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/vsc-logo.png" alt="VSCode  " class="w-12 h-auto object-contain">
+                <img src="/images/vsc-logo.png" alt="VSCode  " class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/github-icon.png" alt="GitHub" class="w-12 h-auto object-contain">
+                <img src="/images/github-icon.png" alt="GitHub" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/git-icon.png" alt="Git" class="w-12 h-auto object-contain">
+                <img src="/images/git-icon.png" alt="Git" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/gpt-logo.png" alt="GPT" class="w-12 h-auto object-contain">
+                <img src="/images/gpt-logo.png" alt="GPT" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/claude-icon.png" alt="Claude AI" class="w-12 h-auto object-contain">
+                <img src="/images/claude-icon.png" alt="Claude AI" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/gemini-icon.png" alt="Gemini" class="w-12 h-auto object-contain">
+                <img src="/images/gemini-icon.png" alt="Gemini" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/tailwind-icon.png" alt="Tailwind CSS" class="w-12 h-auto object-contain">
+                <img src="/images/tailwind-icon.png" alt="Tailwind CSS" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/javascript-logo.png" alt="JavaScript" class="w-14 h-auto object-contain">
+                <img src="/images/javascript-logo.png" alt="JavaScript" class="w-14 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
-                <img src="./images/python-logo.png" alt="Python" class="w-20 h-auto object-contain">
+                <img src="/images/python-logo.png" alt="Python" class="w-20 h-auto object-contain">
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function App() {
             <div class="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div class="relative overflow-hidden">
                 <img
-                  src="./images/minesweeper.jpg"
+                  src="/images/minesweeper.jpg"
                   alt="Minesweeper"
                   class="w-full object-cover transition-transform duration-300"
                   style="height: 225px;"
@@ -195,7 +195,7 @@ export default function App() {
             <div class="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div class="relative overflow-hidden">
                 <img
-                  src="./images/team-link.jpeg"
+                  src="/images/team-link.jpeg"
                   alt="TeamLink"
                   class="w-full object-cover transition-transform duration-300"
                   style="height: 225px;"
@@ -239,7 +239,7 @@ export default function App() {
             <div class="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div class="relative overflow-hidden">
                 <img
-                  src="./images/tps-logo1.png"
+                  src="/images/tps-logo1.png"
                   alt="Building Priority"
                   class="w-full object-cover transition-transform duration-300"
                   style="height: 225px;"
@@ -281,7 +281,7 @@ export default function App() {
             <div class="glass-medium rounded-2xl overflow-hidden transition-all duration-300 group">
               <div class="relative overflow-hidden">
                 <img
-                  src="./images/navi-structure1.png"
+                  src="/images/navi-structure1.png"
                   alt="Navi"
                   class="w-full object-cover transition-transform duration-300"
                   style="height: 225px;"
