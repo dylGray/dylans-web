@@ -10,7 +10,7 @@ export default function App() {
               Sup, I'm Dylan
             </h1>
             <img
-              src="./images/butters.jpg"
+              src="/images/butters.jpg"
               alt="Butters"
               class="mx-auto mb-6 w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-white/20 shadow-lg"
             />
