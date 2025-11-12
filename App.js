@@ -59,7 +59,7 @@ export default function App() {
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-white mb-1">Software Development</h4>
-                  <p class="text-white/90 leading-relaxed text-xs md:text-base">Hands on experience building web applications with modern technologies, cloud platforms, and API providers.</p>
+                  <p class="text-white/90 leading-relaxed text-xs md:text-base">Hands on experience building web applications with modern technologies and cloud platforms.</p>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function App() {
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
                 <img src="/images/gemini-icon.png" alt="Gemini" class="w-12 h-auto object-contain">
               </div>
-              <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
+              <div class="rounded-xl p-0 mt-3 hover:scale-110 transition-all duration-300 group">
                 <img src="/images/tailwind-icon.png" alt="Tailwind CSS" class="w-12 h-auto object-contain">
               </div>
               <div class="rounded-xl p-0 hover:scale-110 transition-all duration-300 group">
