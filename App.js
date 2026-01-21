@@ -1,4 +1,4 @@
-import { createIcons, User, Users, Building, Mail, Lightbulb, Code, Palette } from 'lucide';
+import { createIcons, User, Users, Building, Mail, Lightbulb, Code, Palette, } from 'lucide';
 
 export default function App() {
     const html = `
@@ -97,7 +97,7 @@ export default function App() {
             <section id="projects" class="px-6 py-24 bg-[#050505]">
                 <div class="max-w-6xl mx-auto">
                     <div class="mb-16">
-                        <h2 class="text-3xl font-bold tracking-tight mb-4">Selected Projects</h2>
+                        <h2 class="text-3xl font-bold tracking-tight mb-4">Stuff I've built/am building</h2>
                         <div class="h-px w-24 bg-zinc-800"></div>
                     </div>
 
