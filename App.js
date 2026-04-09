@@ -2,7 +2,7 @@ export default function App() {
     const html = `
         <div class="bg-[#09090b] text-zinc-50 min-h-screen selection:bg-blue-500/30 selection:text-zinc-100 font-sans antialiased flex flex-col">
             
-            <nav class="fixed top-0 w-full p-6 mt-6 z-50 flex justify-end md:hidden">
+            <nav class="fixed top-0 w-full p-6 mt-6 mr-2 z-50 flex justify-end md:hidden">
                 <img 
                     src="/images/butters.jpg" 
                     alt="Butters" 
@@ -29,7 +29,7 @@ export default function App() {
                                 I specialize in building web applications and solving problems. 
                                 Currently focused on creating client facing tools with modern
                                 web technologies. When I'm not coding, I'm either at the gym, 
-                                fishing, or handing out with my friends.
+                                fishing, or hanging out with my friends.
                             </p>
                         </div>
 
